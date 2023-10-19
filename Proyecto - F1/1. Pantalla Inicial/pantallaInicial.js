@@ -11,7 +11,7 @@ var usuario = {
 iniciarSesionBtn.addEventListener('click', function(event) {
     event.preventDefault();
     cargarDatos();
-    if (usuario.correo !== '' && usuario.contrasena !== '') { // si todo es okay
+    if (usuario.correo !== '' && usuario.contrasena !== '') {
         window.location.href = "/Proyecto - F1/3. Pantalla Inicio/pantallaInicio.html"; 
     }
 });
@@ -23,7 +23,6 @@ function cargarDatos(){
 
     var msg = document.getElementById('msg'); 
 
-    // Reinicializa el mensaje de error antes de realizar las validaciones.
     msg.textContent = '';
     msg.style.color = "red";
 
@@ -38,8 +37,7 @@ function cargarDatos(){
         msg.textContent = 'La contraseña no es correcta'; 
     }
 
-    if (msg.textContent === '') { 
-        // Si no hay mensajes de error, almacena los datos del usuario.
+    if (msg.textContent === '') { // cargamos los datos.
         usuario.correo = correoInput.value;
         usuario.contrasena = contrasenaInput.value;
         console.log("Correo del usuario:", usuario.correo,"Contraseña del usuario:", usuario.contrasena);
