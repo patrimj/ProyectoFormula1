@@ -11,6 +11,9 @@ var usuario = {
 iniciarSesionBtn.addEventListener('click', function(event) {
     event.preventDefault();
     cargarDatos();
+    if (usuario.correo !== '' && usuario.contrasena !== '') { // si todo es okay
+        window.location.href = "/Proyecto - F1/3. Pantalla Inicio/pantallaInicio.html"; 
+    }
 });
 
 // FUNCIONES
@@ -39,7 +42,7 @@ function cargarDatos(){
         // Si no hay mensajes de error, almacena los datos del usuario.
         usuario.correo = correoInput.value;
         usuario.contrasena = contrasenaInput.value;
-        console.log("Datos del usuario:", usuario);
+        console.log("Correo del usuario:", usuario.correo,"Contraseña del usuario:", usuario.contrasena);
     }
 
 //JSON
