@@ -1,22 +1,23 @@
 const nombreInput = document.getElementById("nombre");
-const apellidoInput = document.getElementById("apellido");
+const apellidoInput = document.getElementById("apellidos");
 const correoInput = document.getElementById("correo");
 const nickInput = document.getElementById("nick");
 const contrasenaInput = document.getElementById("contrasena");
-const confirmarContrasenaInput = document.getElementById("confirmar-contrasena");
+const confirmarContrasenaInput = document.getElementById("confirmacion-contrasena");
 const registrarseBtn = document.getElementById("registrarse");
 
 var usuarioCreado = {
     nombre: '',
     apellido: '',
     correo: '',
+    nick: '',
     contrasena: ''
 };
 
 registrarseBtn.addEventListener('click', function(event) {
     event.preventDefault(); // Evita que se recargue la página
     cargarDatos();
-    if (usuarioCreado.nombre !== '' && usuarioCreado.apellido !== '' && usuarioCreado.correo !== '' && usuarioCreado.contrasena !== '') {
+    if (usuarioCreado.nombre !== '' && usuarioCreado.apellido !== '' && usuarioCreado.correo !== '' && usuarioCreado.nick !== '' && usuarioCreado.contrasena !== '') {
         window.location.href = "/Proyecto - F1/1. Pantalla Inicial/pantallaInicial.html"; 
     }
 });
@@ -40,28 +41,38 @@ function cargarDatos(){
     let nickValido = nickRegex.test(nickInput.value);
     let contrasenaValida = contrasenaRegex.test(contrasenaInput.value);
 
-    if (!nombreValido && !apellidoValido && !correoValido && !nickValido && !contrasenaValida) {
-        msg.textContent = 'El nombre, apellido, correo, nick y contraseña no son correctos'; 
-    } else if (!nombreValido) {
-        msg.textContent = 'El nombre no es correcto'; 
-    } else if (!apellidoValido) {
-        msg.textContent = 'El apellido no es correcto'; 
-    } else if (!correoValido) {
-        msg.textContent = 'El correo no es correcto'; 
-    } else if (!nickValido) {
-        msg.textContent = 'El nick no es correcto'; 
-    } else if (!contrasenaValida) {
-        msg.textContent = 'La contraseña no es correcta'; 
+    let errores = '';
+
+    if (!nombreValido) {
+        errores += 'El nombre es incorrecto. ';
+    }
+    if (!apellidoValido) {
+        errores += 'El apellido es incorrecto. ';
+    }
+    if (!correoValido) {
+        errores += 'El correo es incorrecto. ';
+    }
+    if (!nickValido) {
+        errores += 'El nick es incorrecto. ';
+    }
+    if (!contrasenaValida) {
+        errores += 'La contraseña es incorrecto. ';
+    }
+    if (contrasenaInput.value !== confirmarContrasenaInput.value) {
+        errores += 'Las contraseñas no coinciden. ';
     }
 
-    if (msg.textContent === '') { // cargamos los datos.
-        usuarioCreado.nombre = nombreInput.value;
-        usuarioCreado.apellido = apellidoInput.value;
-        usuarioCreado.correo = correoInput.value;
-        usuarioCreado.contrasena = contrasenaInput.value;
-        console.log("Nombre del usuario:", usuarioCreado.nombre,"Apellido del usuario:", usuarioCreado.apellido,"Correo del usuario:", usuarioCreado.correo,"Contraseña del usuario:", usuarioCreado.contrasena);
+    if (errores !== '') {
+        msg.textContent = errores;
+        return;
     }
-
+    // Cargar los datos del usuario
+    usuarioCreado.nombre = nombreInput.value;
+    usuarioCreado.apellido = apellidoInput.value;
+    usuarioCreado.correo = correoInput.value;
+    usuarioCreado.nick = nickInput.value;
+    usuarioCreado.contrasena = contrasenaInput.value;
+    console.log("Nombre:", usuarioCreado.nombre,"Apellido:", usuarioCreado.apellido,"Correo:", usuarioCreado.correo,"Nick:", usuarioCreado.nick,"Contraseña", usuarioCreado.contrasena);
 }    
 //JSON
 
