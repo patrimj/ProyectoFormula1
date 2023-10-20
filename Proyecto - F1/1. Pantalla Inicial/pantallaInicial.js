@@ -19,7 +19,7 @@ iniciarSesionBtn.addEventListener('click', function(event) {
 // FUNCIONES
 function cargarDatos(){
     const correoRegex = /^[A-Za-z0-9_]{2,15}@[A-Za-z0-9_]{3,15}\.[A-Za-z0-9_]{2,4}$/;
-    const contrasenaRegex = /^[a-zA-Z0-9_@\$]{6,12}$/;
+    const contrasenaRegex = /^[a-zA-Z0-9*#$]{6,12}$/;
 
     var msg = document.getElementById('msg'); 
 
