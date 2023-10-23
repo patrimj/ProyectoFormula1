@@ -15,15 +15,37 @@
         <div id="pilotoUno">
 <!--            <img src="../img/fernando-alonso.jpg" alt="">-->
 <!--            <span class="nombre">Fernando Alonso</span>-->
+            <div>
+                <select name="opciones" class="opcionesPilotos" id="opcionesPilotoUno">
+                    <option>...</option>
+                </select>
+                <button id="asignarPilotoUno">Fijar piloto</button>
+            </div>
+            <div>
+                <label for="rolTitularUno">Piloto Titular</label>
+                <input type="radio" name="rolUno" id="rolTitularUno">
+
+                <label for="rolSuplenteUno">Piloto Suplente</label>
+                <input type="radio" name="rolUno" id="rolSuplenteUno">
+            </div>
         </div>
-        <div>
-            <select name="opciones" id="opciones">
-                <option id="borrar">No hay pilotos.</option>
-            </select>
-            <button>Asignar titular</button>
+        <div id="pilotoDos">
+            <div>
+                <select name="opciones" class="opcionesPilotos" id="opcionesPilotoDos">
+                    <option>...</option>
+                </select>
+                <button id="asignarPilotoDos">Fijar piloto</button>
+            </div>
+            <div>
+                <label for="rolTitularDos">Piloto Titular</label>
+                <input type="radio" name="rolDos" id="rolTitularDos">
+
+                <label for="rolSuplenteDos">Piloto Suplente</label>
+                <input type="radio" name="rolDos" id="rolSuplenteDos">
+            </div>
         </div>
-        <div id="pilotoDos"></div>
     </div>
 </div>
+<script src="pantallaPilotos.js" type="module"></script>
 </body>
 </html>
