@@ -1,4 +1,4 @@
-const roles = [
+export const ROLES = [
     {
         "id": 1,
         "nombre": "Titular"
