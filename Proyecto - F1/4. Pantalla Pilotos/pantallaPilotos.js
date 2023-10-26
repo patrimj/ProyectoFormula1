@@ -1,6 +1,7 @@
 import {PILOTOS} from "./ListaPilotos.js";
 import {ROLES} from "./Roles.js";
 import {Piloto, Rol} from "./clases.js";
+import {constantes} from "./constantes.js";
 
 const pilotoUnoDiv = document.querySelector("#pilotoUno");
 const pilotoDosDiv = document.querySelector("#pilotoDos");
@@ -42,15 +43,14 @@ pilotoUnoTitular.onclick = function () {
     asignarRol(pilotos[0], pilotoUnoDiv, pilotoUnoTitular, ROLES.titular);
     asignarRol(pilotos[1], pilotoDosDiv, pilotoDosTitular, ROLES.suplente);
 
-    localStorage.setItem('pilotos', JSON.stringify(pilotos));
+    localStorage.setItem(constantes.clavePilotos, JSON.stringify(pilotos));
 };
 
 pilotoDosTitular.onclick = function () {
     asignarRol(pilotos[0], pilotoUnoDiv, pilotoUnoTitular, ROLES.suplente);
     asignarRol(pilotos[1], pilotoDosDiv, pilotoDosTitular, ROLES.titular);
 
-    localStorage.setItem('pilotos', JSON.stringify(pilotos));
-    console.log(JSON.parse(localStorage.getItem('pilotos')));
+    localStorage.setItem(constantes.clavePilotos, JSON.stringify(pilotos));
 };
 
 /**
