@@ -1,81 +1,73 @@
 import {PILOTOS} from "./ListaPilotos.js";
 import {ROLES} from "./Roles.js";
+import {Piloto, Rol} from "./clases.js";
 
-const opcionesSelects = document.getElementsByClassName('opcionesPilotos');
-const opcionesSelectsUno = opcionesSelects[0];
-const opcionesSelectsDos = opcionesSelects[1];
-const asignarPilotoUnoBoton = document.getElementById("asignarPilotoUno");
-const asignarPilotoDosBoton = document.getElementById("asignarPilotoDos");
-const infoPilotoUno = document.getElementById("infoPilotoUno");
-const infoPilotoDos = document.getElementById("infoPilotoDos");
-const rolPilotoUno = document.getElementById('rolPilotoUno');
-const rolPilotoDos = document.getElementById('rolPilotoDos');
-
-var pilotosAsignados;
+const pilotoUnoDiv = document.querySelector("#pilotoUno");
+const pilotoDosDiv = document.querySelector("#pilotoDos");
+const pilotoUnoTitular = document.querySelector("#pilotoUnoTitular");
+const pilotoDosTitular = document.querySelector("#pilotoDosTitular");
+let pilotos = [];
 
 onload = function () {
-    for (let select of opcionesSelects) {
-        cargarPilotos(select);
+    let pilotoUnoIndice = Math.floor(Math.random() * PILOTOS.length);
+    let pilotoDosIndice = pilotoUnoIndice;
+
+    while (pilotoDosIndice === pilotoUnoIndice) {
+        pilotoDosIndice =  Math.floor(Math.random() * PILOTOS.length);
     }
-};
 
-asignarPilotoUnoBoton.onclick = function () {
-    let pilotoAsignado = asignarPiloto(opcionesSelectsUno, infoPilotoUno, rolPilotoUno);
-    // TODO: Borrar piloto asignado de la lista.
-    asignarPilotoUnoBoton.disabled = true;
-
-
-};
-
-asignarPilotoDosBoton.onclick = function () {
-    asignarPiloto(opcionesSelectsDos, infoPilotoDos, rolPilotoDos);
-    asignarPilotoDosBoton.disabled = true;
+    cargarPiloto(PILOTOS[pilotoUnoIndice], pilotoUnoDiv, pilotoUnoTitular);
+    cargarPiloto(PILOTOS[pilotoDosIndice], pilotoDosDiv, pilotoDosTitular);
 };
 
 /**
- * @param elemento {HTMLSelectElement}
- */
-function cargarPilotos(elemento) {
-    for (let piloto of PILOTOS) {
-        let opcion = document.createElement("option");
-
-        opcion.id = piloto.codigo;
-        opcion.text = `${piloto.nombre} ${piloto.apellido}`;
-
-        elemento.add(opcion);
-    }
-}
-
-/**
- * @param select {HTMLSelectElement}
+ *
+ * @param piloto {Piloto}
  * @param infoPilotoDiv {HTMLDivElement}
- * @param rolInput {HTMLInputElement}
+ * @param boton {HTMLButtonElement}
+ * @param rol {Rol}
  */
-function asignarPiloto(select, infoPilotoDiv, rolInput) {
-    let piloto = PILOTOS.find(function (piloto) {
-       return `${piloto.nombre} ${piloto.apellido}` === select.value;
-    });
+function asignarRol(piloto, infoPilotoDiv, boton, rol) {
+    let titularSpan = document.createElement('span');
 
-    console.log(rolInput);
-
-    let imagen = document.createElement('img');
-    let nombre = document.createElement("span");
-    let rol = document.createElement("span");
-
-    nombre.textContent = `${piloto.nombre} ${piloto.apellido}`;
-    imagen.src = `../img/${piloto.codigo}`;
-    rol.textContent = rolInput.checked ? ROLES[0].nombre : ROLES[1].nombre;
-
-    // TODO: Guardar rol en el objeto del piloto.
-
-    infoPilotoDiv.appendChild(imagen);
-    infoPilotoDiv.appendChild(nombre);
-    infoPilotoDiv.appendChild(rol);
-
-    select.disabled = true;
-    rolInput.disabled = true;
+    piloto.rol = rol;
+    titularSpan.textContent = rol.nombre;
+    infoPilotoDiv.appendChild(titularSpan);
+    boton.disabled = true;
 
     return piloto;
 }
 
-// TODO: Guardar array de pilotos asignados en LocalStorage.
+pilotoUnoTitular.onclick = function () {
+    asignarRol(pilotos[0], pilotoUnoDiv, pilotoUnoTitular, ROLES.titular);
+    asignarRol(pilotos[1], pilotoDosDiv, pilotoDosTitular, ROLES.suplente);
+
+    localStorage.setItem('pilotos', JSON.stringify(pilotos));
+};
+
+pilotoDosTitular.onclick = function () {
+    asignarRol(pilotos[0], pilotoUnoDiv, pilotoUnoTitular, ROLES.suplente);
+    asignarRol(pilotos[1], pilotoDosDiv, pilotoDosTitular, ROLES.titular);
+
+    localStorage.setItem('pilotos', JSON.stringify(pilotos));
+    console.log(JSON.parse(localStorage.getItem('pilotos')));
+};
+
+/**
+ * @param piloto {Piloto}
+ * @param infoPilotoDiv {HTMLDivElement}
+ * @param botonTitular {HTMLButtonElement}
+ */
+function cargarPiloto(piloto, infoPilotoDiv, botonTitular) {
+    let imagen = document.createElement('img');
+    let nombre = document.createElement("span");
+
+    nombre.textContent = `${piloto.nombre} ${piloto.apellido}`;
+    imagen.src = `/img/${piloto.codigo}`;
+    botonTitular.textContent = `Asignar ${piloto.apellido} como titular`;
+
+    pilotos.push(piloto);
+
+    infoPilotoDiv.appendChild(imagen);
+    infoPilotoDiv.appendChild(nombre);
+}

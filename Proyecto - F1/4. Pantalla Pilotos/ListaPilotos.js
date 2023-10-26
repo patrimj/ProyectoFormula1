@@ -1,141 +1,136 @@
+import {Piloto} from './clases.js';
+
 export const PILOTOS = [
-    {
-        "id": 1,
-        "codigo": "alexander-albon",
-        "nombre": "Alex",
-        "apellido": "Albon",
-        "nacionalidad": "THA"
-    },
-    {
-        "id": 2,
-        "codigo": "carlos-sainz",
-        "nombre": "Carlos",
-        "apellido": "Sainz",
-        "nacionalidad": "ESP",
-    },
-    {
-        "id": 3,
-        "codigo": "charles-leclerc",
-        "nombre": "Charles",
-        "apellido": "Leclerc",
-        "nacionalidad": "MON",
-    },
-    {
-        "id": 4,
-        "codigo": "esteban-ocon",
-        "nombre": "Esteban",
-        "apellido": "Ocon",
-        "nacionalidad": "FRA",
-    },
-    {
-        "id": 5,
-        "codigo": "fernando-alonso",
-        "nombre": "Fernando",
-        "apellido": "Alonso",
-        "nacionalidad": "ESP",
-    },
-    {
-        "id": 6,
-        "codigo": "george-russell",
-        "nombre": "George",
-        "apellido": "Russell",
-        "nacionalidad": "GRB",
-    },
-    {
-        "id": 7,
-        "codigo": "guanyu-zhou",
-        "nombre": "Guanyu",
-        "apellido": "Zhou",
-        "nacionalidad": "CHN",
-    },
-    {
-        "id": 8,
-        "codigo": "kevin-magnussen",
-        "nombre": "Kevin",
-        "apellido": "Magnussen",
-        "nacionalidad": "DNK",
-    },
-    {
-        "id": 9,
-        "codigo": "lance-stroll",
-        "nombre": "Lance",
-        "apellido": "Stroll",
-        "nacionalidad": "CAN",
-    },
-    {
-        "id": 10,
-        "codigo": "lando-norris",
-        "nombre": "Lando",
-        "apellido": "Norris",
-        "nacionalidad": "GBR",
-    },
-    {
-        "id": 11,
-        "codigo": "lewis-hamilton",
-        "nombre": "Lewis",
-        "apellido": "Hamilton",
-        "nacionalidad": "GBR",
-    },
-    {
-        "id": 12,
-        "codigo": "logan-sargeant",
-        "nombre": "Logan",
-        "apellido": "Sargeant",
-        "nacionalidad": "USA",
-    },
-    {
-        "id": 13,
-        "codigo": "max-verstappen",
-        "nombre": "Max",
-        "apellido": "Verstappen",
-        "nacionalidad": "NLD",
-    },
-    {
-        "id": 14,
-        "codigo": "nico-hulkenberg",
-        "nombre": "Nico",
-        "apellido": "Hulkenberg",
-        "nacionalidad": "DEU",
-    },
-    {
-        "id": 15,
-        "codigo": "nyck-de-vries",
-        "nombre": "Nyck",
-        "apellido": "De Vries",
-        "nacionalidad": "NLD",
-    },
-    {
-        "id": 16,
-        "codigo": "oscar-piastri",
-        "nombre": "Oscar",
-        "apellido": "Piastri",
-        "nacionalidad": "AUS",
-    },{
-        "id": 17,
-        "codigo": "pierre-gasly",
-        "nombre": "Pierre",
-        "apellido": "Gasly",
-        "nacionalidad": "FRA",
-    },
-    {
-        "id": 18,
-        "codigo": "sergio-perez",
-        "nombre": "Sergio",
-        "apellido": "Perez",
-        "nacionalidad": "MEX",
-    },
-    {
-        "id": 19,
-        "codigo": "valtteri-bottas",
-        "nombre": "Valtteri",
-        "apellido": "Bottas",
-        "nacionalidad": "FIN",
-    },
-    {
-        "id": 20,
-        "codigo": "yuki-tsunoda",
-        "nombre": "Yuki",
-        "apellido": "Tsunoda",
-        "nacionalidad": "JPN",
-    }
-]
+    new Piloto(
+        "alexander-albon",
+        "Alex",
+        "Albon",
+        "THA"
+    ),
+
+    new Piloto(
+        "carlos-sainz",
+        "Carlos",
+        "Sainz",
+        "ESP"
+    ),
+
+    new Piloto(
+        "charles-leclerc",
+        "Charles",
+        "Leclerc",
+        "MON"
+    ),
+
+    new Piloto(
+        "esteban-ocon",
+        "Esteban",
+        "Ocon",
+        "FRA"
+    ),
+
+    new Piloto(
+        "fernando-alonso",
+        "Fernando",
+        "Alonso",
+        "ESP"
+    ),
+
+    new Piloto(
+        "george-russell",
+        "George",
+        "Russell",
+        "GRB"
+    ),
+
+    new Piloto(
+        "guanyu-zhou",
+        "Guanyu",
+        "Zhou",
+        "CHN"
+    ),
+
+    new Piloto(
+        "kevin-magnussen",
+        "Kevin",
+        "Magnussen",
+        "DNK"
+    ),
+
+    new Piloto(
+        "lance-stroll",
+        "Lance",
+        "Stroll",
+        "CAN"
+    ),
+
+    new Piloto(
+        "lewis-hamilton",
+        "Lewis",
+        "Hamilton",
+        "GBR"
+    ),
+
+    new Piloto(
+        "logan-sargeant",
+        "Logan",
+        "Sargeant",
+        "USA"
+    ),
+
+    new Piloto(
+        "max-verstappen",
+        "Max",
+        "Verstappen",
+        "NLD"
+    ),
+
+    new Piloto(
+        "nico-hulkenberg",
+        "Nico",
+        "Hulkenberg",
+        "DEU"
+    ),
+
+    new Piloto(
+        "nyck-de-vries",
+        "Nyck",
+        "De Vries",
+        "NLD"
+    ),
+
+    new Piloto(
+        "oscar-piastri",
+        "Oscar",
+        "Piastri",
+        "AUS"
+    ),
+
+    new Piloto(
+        "pierre-gasly",
+       "Pierre",
+        "Gasly",
+        "FRA"
+    ),
+
+    new Piloto(
+        "sergio-perez",
+        "Sergio",
+        "Perez",
+        "MEX"
+    ),
+
+    new Piloto(
+        "valtteri-bottas",
+        "Valtteri",
+        "Bottas",
+        "FIN"
+    ),
+
+    new Piloto(
+        "yuki-tsunoda",
+        "Yuki",
+        "Tsunoda",
+        "JPN"
+    )
+];
