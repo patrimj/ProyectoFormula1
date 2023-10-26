@@ -17,12 +17,13 @@ export class Bot {
 
 export class Piloto {
 
-    constructor(nombre, apellido, nacionalidad) {
+    constructor(codigo, nombre, apellido, nacionalidad) {
+        this.codigo = codigo;
         this.nombre = nombre;
         this.apellido = apellido;
         this.nacionalidad = nacionalidad;
     }
-}
+}  
 
 export class Equipo {
     constructor(nombre, puntos) {
