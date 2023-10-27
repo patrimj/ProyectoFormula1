@@ -1,7 +1,8 @@
-import {PILOTOS} from "./ListaPilotos.js";
-import {ROLES} from "./Roles.js";
-import {Piloto, Rol} from "./clases.js";
-import {constantes} from "./constantes.js";
+import {PILOTOS} from "../ListaPilotos.js";
+import {ROLES} from "../Roles.js";
+import {Piloto} from "../Clases/Piloto.js";
+import {Rol} from "../Clases/Rol.js";
+import {constantes} from "../constantes.js";
 
 const pilotoUnoDiv = document.querySelector("#pilotoUno");
 const pilotoDosDiv = document.querySelector("#pilotoDos");
