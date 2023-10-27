@@ -1,4 +1,4 @@
-import {Piloto} from '/Clases/Piloto.js';
+import {Piloto} from './Clases/Piloto.js';
 
 export const PILOTOS = [
     new Piloto(
