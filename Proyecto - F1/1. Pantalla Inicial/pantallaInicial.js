@@ -9,7 +9,7 @@ var usuario = {
 
 // EVENTOS
 iniciarSesionBtn.addEventListener('click', function(event) {
-    event.preventDefault();
+    event.preventDefault();//evita que se recargue la página
     cargarDatos();
 });
 
@@ -53,8 +53,8 @@ function cargarDatos(){
         usuario.contrasena = contrasenaInput.value;
         console.log("Correo del usuario:", usuario.correo,"Contraseña del usuario:", usuario.contrasena);
 
-        var usuarioJSON = JSON.stringify(usuario);    
-        localStorage.setItem('usuario', usuarioJSON); 
+        var usuarioJSON = JSON.stringify(usuario);     
+        localStorage.setItem('login', usuarioJSON); 
     }
 
     /*
@@ -67,7 +67,7 @@ function cargarDatos(){
         msg.textContent = 'El correo no es correcto'; 
     } else if (!contrasenaValida) {
         msg.textContent = 'La contraseña no es correcta'; 
-    }*/
+    }
 
     if (msg.textContent === '') { // cargamos los datos.
         usuario.correo = correoInput.value;
@@ -77,5 +77,5 @@ function cargarDatos(){
         // si los datos del usuario en el inicio de sesión son correctos, se almacenan en el localStorage
         var usuarioJSON = JSON.stringify(usuario);    
         localStorage.setItem('usuario', usuarioJSON); 
-    }
+    }*/
 }
