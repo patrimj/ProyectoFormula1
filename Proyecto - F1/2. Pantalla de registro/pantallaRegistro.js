@@ -18,6 +18,8 @@ registrarseBtn.addEventListener('click', function(event) {
     event.preventDefault(); // Evita que se recargue la página
     cargarDatos();
     if (usuarioCreado.nombre !== '' && usuarioCreado.apellido !== '' && usuarioCreado.correo !== '' && usuarioCreado.nick !== '' && usuarioCreado.contrasena !== '') {
+        var usuarioJSON = JSON.stringify(usuarioCreado); 
+        localStorage.setItem('usuario', usuarioJSON); 
         window.location.href = "/Proyecto - F1/1. Pantalla Inicial/pantallaInicial.html"; 
     }
 });
@@ -74,10 +76,7 @@ function cargarDatos(){
     usuarioCreado.contrasena = contrasenaInput.value;
     console.log("Nombre:", usuarioCreado.nombre,"Apellido:", usuarioCreado.apellido,"Correo:", usuarioCreado.correo,"Nick:", usuarioCreado.nick,"Contraseña", usuarioCreado.contrasena);
 }    
-//JSON
 
-var usuarioJSON = JSON.stringify(usuarioCreado); 
-localStorage.setItem('usuario', usuarioJSON); 
 
 
 
