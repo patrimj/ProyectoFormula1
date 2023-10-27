@@ -1,28 +1,58 @@
-import { Piloto, Usuario, Bot, GranPremio } from './clases.js';
+import { grandesPremios } from '../Clases/GranPremio.js';
+import { PILOTOS } from '../ListaPilotos.js';
+import { Jugador } from '../Clases/Jugador.js';
+
+  //coge el usuario del registro de localStorage
+  var usuarioJSON = localStorage.getItem('usuario'); 
+  var usuarioCreado = JSON.parse(usuarioJSON);
+
+
+const bot1 = generarBot('Bot1');
+const bot2 = generarBot('Bot2');
+const usuario = generarUsuario();
+cargarSiguienteCarerra();
+
+console.log("Usuario:", usuario);
+console.log("Bot1:", bot1);
+console.log("Bot2:", bot2);
 
 //Se deben cargar los grandes premios con todas las puntuaciones de todas las carreras.
-const grandesPremios = [
-  new GranPremio('Nom1', 'Australia', 'Descripcion1', [25, 18, 15, 12, 10, 8, 6, 4, 2, 1]),
-  new GranPremio('Nom2', 'Bahrain', 'Descripcion2', [25, 18, 15, 12, 10, 8, 6, 4, 2, 1]),
-  new GranPremio('Nom3', 'China', 'Descripcion3', [25, 18, 15, 12, 10, 8, 6, 4, 2, 1]),
-  new GranPremio('Nom4', 'Azerbaiyán', 'Descripcion4', [25, 18, 15, 12, 10, 8, 6, 4, 2, 1]),
-  new GranPremio('Nom5', 'España', 'Descripcion5', [25, 18, 15, 12, 10, 8, 6, 4, 2, 1]),
-  new GranPremio('Nom6', 'Mónaco', 'Descripcion6', [25, 18, 15, 12, 10, 8, 6, 4, 2, 1]),
-  new GranPremio('Nom7', 'Canadá', 'Descripcion7', [25, 18, 15, 12, 10, 8, 6, 4, 2, 1])
-];
 
-//Se debe asignar un piloto titular y suplente a tu usuario
-const usuario = new Usuario('TuUsuario', new Piloto ('Nombre1', 'Apellido1', 'Español'), new Piloto ('Nombre2', 'Apellido2', 'Español'));
 
 // Se deben generarse los dos usuarios bot con sus pilotos suplentes y titulares respectivamente
-const bots = [
-    new Bot('Bot1', new Piloto('Nombre1', 'Apellido1', 'Español'), new Piloto('Nombre2', 'Apellido2', 'Español')),
-    new Bot('Bot2', new Piloto('Nombre3', 'Apellido3', 'Inglés'), new Piloto('Nombre4', 'Apellido4', 'Inglés')),
-];
+function generarBot(nombre) {
+    let pilotoUnoIndice = Math.floor(Math.random() * PILOTOS.length); // Coge un piloto aleatorio de la lista pilotos.
+    let pilotoDosIndice = pilotoUnoIndice;
+
+    while (pilotoDosIndice === pilotoUnoIndice) {
+        pilotoDosIndice =  Math.floor(Math.random() * PILOTOS.length); // Mientras sean los mismos pilotos, irá eligiendo un piloto aleatorio hasta que sea distinto
+    }
+
+    return new Jugador(nombre, PILOTOS[pilotoUnoIndice], PILOTOS[pilotoDosIndice], true);
+}
+
+//Se debe asignar un piloto titular y suplente a tu usuario
+function generarUsuario() {
+  let pilotoUnoIndice = Math.floor(Math.random() * PILOTOS.length); 
+  let pilotoDosIndice = pilotoUnoIndice;
+
+  while (pilotoDosIndice === pilotoUnoIndice) {
+      pilotoDosIndice =  Math.floor(Math.random() * PILOTOS.length); 
+  }
+
+  return new Jugador(usuarioCreado.nombre, PILOTOS[pilotoUnoIndice], PILOTOS[pilotoDosIndice], false);
+}
 
 // Mostrar el nombre de la siguiente carrera por disputarse, con el lugar donde se disputa el gran premio y una breve descripción de la carrera.
-const siguienteCarrera = grandesPremios[0];
-document.getElementById('nombreGP').textContent = siguienteCarrera.nombre;
-document.getElementById('lugarGP').textContent = siguienteCarrera.lugar;
-document.getElementById('descripcionGP').textContent = siguienteCarrera.descripcion;
+function cargarSiguienteCarerra() {
+  const nombreGP = document.getElementById('nombreGP');
+  const lugarGP = document.getElementById('lugarGP');
+  const descripcionGP = document.getElementById('descripcionGP');
+
+  nombreGP.textContent = grandesPremios[0].nombre;
+  lugarGP.textContent = grandesPremios[0].lugar;
+  descripcionGP.textContent = grandesPremios[0].descripcion;
+}
+
+
 

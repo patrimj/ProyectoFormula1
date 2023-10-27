@@ -54,7 +54,7 @@ function cargarDatos(){
         console.log("Correo del usuario:", usuario.correo,"Contraseña del usuario:", usuario.contrasena);
 
         var usuarioJSON = JSON.stringify(usuario);     
-        localStorage.setItem('usuario', usuarioJSON); //
+        localStorage.setItem('login', usuarioJSON); 
     }
 
     /*
