@@ -1,28 +1,58 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Perfil</title>
-</head>
-<body>
-    <form>
-        <label for="fname">Nombre:</label><br>
-        <input type="text" id="fname" name="fname"><br>
-        <label for="lname">Apellidos:</label><br>
-        <input type="text" id="lname" name="lname"><br>
-        <label for="email">Correo:</label><br>
-        <input type="email" id="email" name="email"><br>
-        <label for="password">Contraseña:</label><br>
-        <input type="password" id="password" name="password"><br>
-        <label for="password2">Verificación de Contraseña:</label><br>
-        <input type="password" id="password2" name="password2"><br>
-        <input type="submit" value="Actualizar">
-    </form>
-    <form>
-        <label for="newpassword">Nueva Contraseña:</label><br>
-        <input type="password" id="newpassword" name="newpassword"><br>
-        <label for="newpassword2">Verificación de Nueva Contraseña:</label><br>
-        <input type="password" id="newpassword2" name="newpassword2"><br>
-        <input type="submit" value="Cambiar Contraseña">
-    </form>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Pantalla de Perfil</title>
+    </head>
+    <body>
+
+        <div id="menu">
+            <ul >
+                <li><a href="/Proyecto - F1/3. Pantalla Inicio/pantallaInicio.html" id="inicio">Inicio</a></li>
+                <li><a href="/Proyecto - F1/4. Pantalla Pilotos/pantallaPilotos.html" id="pilotos">Pilotos</a></li>
+                <li><a href="/Proyecto - F1/5. Pantalla Clasificación/" id="clasificacion">Clasificación</a></li>
+                <li><a href="/Proyecto - F1/6. Pantalla Perfil/pantallaPerfil.html" id="perfil">Perfil</a></li>
+                <li><a href="/Proyecto - F1/7. Pantalla Administracion/pantallaAdministracion.html" id="administracion">Administracion</a></li>
+            </ul>
+        </div>
+
+        <h1>Perfil</h1>
+        <form id="formulario-actualizar">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+                </br></br>
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" id="apellido" name="apellidos" required>
+                </br></br>
+            <label for="correo">Correo:</label>
+            <input type="email" id="correo" name="correo" required>
+                </br></br>
+            <label for="nick">Nick:</label>
+            <input type="text" id="nick" name="nick" required disabled>
+                </br></br>
+                <!--  
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" id="contrasena" name="contrasena" required>
+                </br></br>-->
+            <button type="submit" id="actualizar">Actualizar</button>
+        </form>
+
+        <h2>Cambiar Contraseña</h2>
+        <form id="formulario-cambiar-contraseña">
+            <label for="antigua-contrasena">Antigua Contraseña:</label>
+            <input type="password" id="antigua-contrasena" name="antigua-contrasena" required>
+                </br></br>
+            <label for="nueva-contrasena">Nueva Contraseña:</label>
+            <input type="password" id="nueva-contrasena" name="nueva-contrasena" required>
+                </br></br>
+            <label for="confirmacion-nueva-contrasena">Confirmación de Nueva Contraseña:</label>
+            <input type="password" id="confirmacion-nueva-contrasena" name="confirmacion-nueva-contrasena" required>
+                </br></br>
+            <button type="submit" id="cambiar-contrasena">Cambiar Contraseña</button>
+        </form>
+
+        <p id="msg"></p>
+        <script type="module" src="pantallaPerfil.js"></script>
+
+    </body>
 </html>
