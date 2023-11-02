@@ -3,27 +3,30 @@ import { pilotos } from '../ListaPilotos.js';
 import { Jugador } from '../Clases/Jugador.js';
 import { Piloto } from "../Clases/Piloto.js";
 import {grandesPremios, PUNTUACION} from "../ListaGrandesPremios.js";
+import {constantes} from "../constantes";
 
 //coge el usuario del registro de localStorage
 var usuarioJSON = localStorage.getItem('usuario');
 var usuarioCreado = JSON.parse(usuarioJSON);
 
 
-const bot1 = generarBot('Bot1');
-const bot2 = generarBot('Bot2');
-const usuario = generarUsuario();
-const resultados = generarGrandesPremios();
+const botUno = generarBot('Bot1');
+const botDos = generarBot('Bot2');
+const resultados = generarResultados();
+
+localStorage.setItem(constantes.claveBotUno, JSON.stringify(botUno));
+localStorage.setItem(constantes.claveBot, JSON.stringify(botDos));
+localStorage.setItem(constantes.claveResultados, JSON.stringify(resultados));
 
 cargarSiguienteCarrera();
 
-
-function calcularResultados(granPremio) {
+function simularGranPremio(granPremio) {
     granPremio.resultados = [];
     let temp = pilotos.slice();
 
     for (let i = 0; i < pilotos.length; i++) {
         const indice = Math.floor(Math.random() * temp.length - 1);
-        const piloto = temp.splice(indice, 1)[0];
+        let piloto = temp.splice(indice, 1)[0];
 
         if (i < PUNTUACION.length - 1) {
             piloto.puntuacion += PUNTUACION[i];
@@ -36,22 +39,27 @@ function calcularResultados(granPremio) {
 }
 
 //Se deben cargar los grandes premios con todas las puntuaciones de todas las carreras.
-function generarGrandesPremios() {
+function generarResultados() {
     for (let i = 0; i < grandesPremios.length; i++) {
-        calcularResultados(grandesPremios[i]);
+        simularGranPremio(grandesPremios[i]);
     }
 
     return grandesPremios;
 }
 
 function obtenerPilotoDisponible() {
-    let esDisponible = false;
-    const indice = Math.floor(Math.random() * pilotos.length - 1);
+    let indice = Math.floor(Math.random() * pilotos.length);
     let piloto = pilotos[indice];
 
-    while (!esDisponible) {
-        esDisponible = piloto.disponible;
+    console.log('Antes', piloto);
+
+    while (!piloto.disponible) {
+        indice = Math.floor(Math.random() * pilotos.length - 1);
+        piloto = pilotos[indice];
     }
+    console.log('-----------');
+
+    console.log('Despues', piloto);
 
     piloto.disponible = false;
 
@@ -84,7 +92,11 @@ function cargarSiguienteCarrera() {
   const lugarGP = document.getElementById('lugarGP');
   const descripcionGP = document.getElementById('descripcionGP');
 
-  nombreGP.textContent = grandesPremios[0].nombre;
-  lugarGP.textContent = grandesPremios[0].lugar;
-  descripcionGP.textContent = grandesPremios[0].descripcion;
+  let siguienteGranPremio = grandesPremios.find(function (granPremio) {
+      return !granPremio.disputado;
+  });
+
+  nombreGP.textContent = siguienteGranPremio.nombre;
+  lugarGP.textContent = siguienteGranPremio.lugar;
+  descripcionGP.textContent = siguienteGranPremio.descripcion;
 }
