@@ -1,6 +1,5 @@
 import { PILOTOS } from '../ListaPilotos.js';
 
-// Obtén la referencia a la tabla en el HTML
 const tabla = document.getElementById('tabla-pilotos');
 
 function infoPilotos() {
@@ -8,7 +7,7 @@ function infoPilotos() {
   // limpiamos la tabla para que no se repitan los pilotos cada vez que se cargue la página
   tabla.innerHTML = '';
 
-  // Itera sobre la lista de pilotos
+  // Recorre la lista de pilotos
   PILOTOS.forEach(piloto => {
 
     // Crea una nueva fila de tabla
