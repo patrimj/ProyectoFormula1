@@ -3,19 +3,18 @@ import { pilotos } from '../ListaPilotos.js';
 import { Jugador } from '../Clases/Jugador.js';
 import { Piloto } from "../Clases/Piloto.js";
 import {grandesPremios, PUNTUACION} from "../ListaGrandesPremios.js";
-import {constantes} from "../constantes";
+import {constantes} from "../constantes.js";
 
 //coge el usuario del registro de localStorage
 var usuarioJSON = localStorage.getItem('usuario');
 var usuarioCreado = JSON.parse(usuarioJSON);
-
 
 const botUno = generarBot('Bot1');
 const botDos = generarBot('Bot2');
 const resultados = generarResultados();
 
 localStorage.setItem(constantes.claveBotUno, JSON.stringify(botUno));
-localStorage.setItem(constantes.claveBot, JSON.stringify(botDos));
+localStorage.setItem(constantes.claveBotDos, JSON.stringify(botDos));
 localStorage.setItem(constantes.claveResultados, JSON.stringify(resultados));
 
 cargarSiguienteCarrera();
@@ -51,15 +50,10 @@ function obtenerPilotoDisponible() {
     let indice = Math.floor(Math.random() * pilotos.length);
     let piloto = pilotos[indice];
 
-    console.log('Antes', piloto);
-
     while (!piloto.disponible) {
         indice = Math.floor(Math.random() * pilotos.length - 1);
         piloto = pilotos[indice];
     }
-    console.log('-----------');
-
-    console.log('Despues', piloto);
 
     piloto.disponible = false;
 
