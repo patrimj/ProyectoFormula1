@@ -1,4 +1,4 @@
-import {Rol} from "./clases.js";
+import {Rol} from "./Clases/Rol.js";
 
 
 export const ROLES = {

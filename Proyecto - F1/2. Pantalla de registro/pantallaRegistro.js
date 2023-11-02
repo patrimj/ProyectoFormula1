@@ -18,9 +18,9 @@ registrarseBtn.addEventListener('click', function(event) {
     event.preventDefault(); // Evita que se recargue la página
     cargarDatos();
     if (usuarioCreado.nombre !== '' && usuarioCreado.apellido !== '' && usuarioCreado.correo !== '' && usuarioCreado.nick !== '' && usuarioCreado.contrasena !== '') {
-        var usuarioJSON = JSON.stringify(usuarioCreado); 
+        let usuarioJSON = JSON.stringify(usuarioCreado);
         localStorage.setItem('usuario', usuarioJSON); 
-        window.location.href = "/Proyecto - F1/1. Pantalla Inicial/pantallaInicial.html"; 
+        window.location.href = "../1. Pantalla Inicial/pantallaInicial.html";
     }
 });
 
