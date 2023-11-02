@@ -3,7 +3,7 @@ export class Jugador {
         this.nombre = nombre;
         this.pilotoTitular = pilotoTitular;
         this.pilotoSuplente = pilotoSuplente;
-        this.bot = this.bot;
+        this.bot = bot;
         this.puntuacion = 0;
     }
 }
