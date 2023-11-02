@@ -1,5 +1,5 @@
 import {constantes} from "../constantes.js";
-import {PILOTOS} from "../ListaPilotos.js";
+import {pilotos} from "../ListaPilotos.js";
 import {Jugador} from "../Clases/Jugador.js";
 
 
@@ -10,14 +10,14 @@ let jugador;
 
 
 function generarBot(nombre) {
-    let pilotoUnoIndice = Math.floor(Math.random() * PILOTOS.length); // Coge un piloto aleatorio de la lista pilotos.
+    let pilotoUnoIndice = Math.floor(Math.random() * pilotos.length); // Coge un piloto aleatorio de la lista pilotos.
     let pilotoDosIndice = pilotoUnoIndice;
 
     while (pilotoDosIndice === pilotoUnoIndice) {
-        pilotoDosIndice =  Math.floor(Math.random() * PILOTOS.length); // Mientras sean los mismos pilotos, irá eligiendo un piloto aleatorio hasta que sea distinto
+        pilotoDosIndice =  Math.floor(Math.random() * pilotos.length); // Mientras sean los mismos pilotos, irá eligiendo un piloto aleatorio hasta que sea distinto
     }
 
-    return new Jugador(nombre, PILOTOS[pilotoUnoIndice], PILOTOS[pilotoDosIndice], true);
+    return new Jugador(nombre, pilotos[pilotoUnoIndice], pilotos[pilotoDosIndice], true);
 }
 
 function colocarDatos(jugador, botUno, botDos) {
