@@ -4,5 +4,7 @@ export class Piloto {
         this.nombre = nombre;
         this.apellido = apellido;
         this.nacionalidad = nacionalidad;
+        this.puntuacion = 0;
+        this.disponible = true;
     }
 }
