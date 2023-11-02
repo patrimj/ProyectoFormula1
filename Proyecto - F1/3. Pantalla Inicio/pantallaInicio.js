@@ -1,27 +1,32 @@
-import { GranPremio } from '../Clases/GranPremio.js';
 import { pilotos } from '../ListaPilotos.js';
 import { Jugador } from '../Clases/Jugador.js';
-import { Piloto } from "../Clases/Piloto.js";
 import {grandesPremios, PUNTUACION} from "../ListaGrandesPremios.js";
 import {constantes} from "../constantes.js";
 
 //coge el usuario del registro de localStorage
-var usuarioJSON = localStorage.getItem('usuario');
-var usuarioCreado = JSON.parse(usuarioJSON);
+let usuarioCreado = JSON.parse(localStorage.getItem('usuario'));
 
 const botUno = generarBot('Bot1');
 const botDos = generarBot('Bot2');
 const resultados = generarResultados();
 
+usuarioCreado.pilotos = [
+    obtenerPilotoDisponible(),
+    obtenerPilotoDisponible()
+];
+
 localStorage.setItem(constantes.claveBotUno, JSON.stringify(botUno));
 localStorage.setItem(constantes.claveBotDos, JSON.stringify(botDos));
 localStorage.setItem(constantes.claveResultados, JSON.stringify(resultados));
+localStorage.setItem(constantes.claveJugador, JSON.stringify(usuarioCreado));
 
 cargarSiguienteCarrera();
 
 function simularGranPremio(granPremio) {
     granPremio.resultados = [];
     let temp = pilotos.slice();
+
+    // TODO: Guardar puntuacion de cada gran premio.
 
     for (let i = 0; i < pilotos.length; i++) {
         const indice = Math.floor(Math.random() * temp.length - 1);

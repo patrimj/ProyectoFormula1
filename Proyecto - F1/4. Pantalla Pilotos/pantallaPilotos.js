@@ -1,4 +1,4 @@
-import {pilotos} from "../ListaPilotos.js";
+
 import {ROLES} from "../Roles.js";
 import {Piloto} from "../Clases/Piloto.js";
 import {Rol} from "../Clases/Rol.js";
@@ -8,18 +8,12 @@ const pilotoUnoDiv = document.querySelector("#pilotoUno");
 const pilotoDosDiv = document.querySelector("#pilotoDos");
 const pilotoUnoTitular = document.querySelector("#pilotoUnoTitular");
 const pilotoDosTitular = document.querySelector("#pilotoDosTitular");
-let listaPilotos = [];
+const jugador = JSON.parse(localStorage.getItem(constantes.claveJugador));
+
 
 onload = function () {
-    let pilotoUnoIndice = Math.floor(Math.random() * listaPilotos.length);
-    let pilotoDosIndice = pilotoUnoIndice;
-
-    while (pilotoDosIndice === pilotoUnoIndice) {
-        pilotoDosIndice =  Math.floor(Math.random() * listaPilotos.length);
-    }
-
-    cargarPiloto(listaPilotos[pilotoUnoIndice], pilotoUnoDiv, pilotoUnoTitular);
-    cargarPiloto(listaPilotos[pilotoDosIndice], pilotoDosDiv, pilotoDosTitular);
+    cargarPiloto(jugador.pilotos[0], pilotoUnoDiv, pilotoUnoTitular);
+    cargarPiloto(jugador.pilotos[1], pilotoDosDiv, pilotoDosTitular);
 };
 
 /**
@@ -41,17 +35,16 @@ function asignarRol(piloto, infoPilotoDiv, boton, rol) {
 }
 
 pilotoUnoTitular.onclick = function () {
-    asignarRol(listaPilotos[0], pilotoUnoDiv, pilotoUnoTitular, ROLES.titular);
-    asignarRol(listaPilotos[1], pilotoDosDiv, pilotoDosTitular, ROLES.suplente);
-
-    localStorage.setItem(constantes.clavePilotos, JSON.stringify(listaPilotos));
+    asignarRol(jugador.pilotos[0], pilotoUnoDiv, pilotoUnoTitular, ROLES.titular);
+    asignarRol(jugador.pilotos[1], pilotoDosDiv, pilotoDosTitular, ROLES.suplente);
+    localStorage.setItem(constantes.claveJugador, JSON.stringify(jugador));
 };
 
 pilotoDosTitular.onclick = function () {
-    asignarRol(listaPilotos[0], pilotoUnoDiv, pilotoUnoTitular, ROLES.suplente);
-    asignarRol(listaPilotos[1], pilotoDosDiv, pilotoDosTitular, ROLES.titular);
+    asignarRol(jugador.pilotos[0], pilotoUnoDiv, pilotoUnoTitular, ROLES.suplente);
+    asignarRol(jugador.pilotos[1], pilotoDosDiv, pilotoDosTitular, ROLES.titular);
 
-    localStorage.setItem(constantes.clavePilotos, JSON.stringify(listaPilotos));
+    localStorage.setItem(constantes.claveJugador, JSON.stringify(jugador));
 };
 
 /**
@@ -64,10 +57,8 @@ function cargarPiloto(piloto, infoPilotoDiv, botonTitular) {
     let nombre = document.createElement("span");
 
     nombre.textContent = `${piloto.nombre} ${piloto.apellido}`;
-    imagen.src = `/img/${piloto.codigo}`;
+    imagen.src = `/img/${piloto.codigo}.jpg`;
     botonTitular.textContent = `Asignar ${piloto.apellido} como titular`;
-
-    listaPilotos.push(piloto);
 
     infoPilotoDiv.appendChild(imagen);
     infoPilotoDiv.appendChild(nombre);
