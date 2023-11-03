@@ -4,16 +4,24 @@ import {grandesPremios, PUNTUACION} from "../ListaGrandesPremios.js";
 import {constantes} from "../constantes.js";
 
 //coge el usuario del registro de localStorage
-let usuarioCreado = JSON.parse(localStorage.getItem('usuario'));
+let usuarioCreado = JSON.parse(localStorage.getItem(constantes.claveJugador));
 
-const botUno = generarBot('Bot1');
-const botDos = generarBot('Bot2');
-const resultados = generarResultados();
+console.log(usuarioCreado);
+
+// TODO: Generador de nombres.
+const botUno = generarBot('BotUno');
+const botDos = generarBot('BotDos');
 
 usuarioCreado.pilotos = [
     obtenerPilotoDisponible(),
     obtenerPilotoDisponible()
 ];
+
+const resultados = generarResultados();
+
+usuarioCreado.puntuacion = obtenerPuntuacion(usuarioCreado);
+botUno.puntuacion = obtenerPuntuacion(botUno);
+botDos.puntuacion = obtenerPuntuacion(botDos);
 
 localStorage.setItem(constantes.claveBotUno, JSON.stringify(botUno));
 localStorage.setItem(constantes.claveBotDos, JSON.stringify(botDos));
@@ -73,29 +81,26 @@ function generarBot(nombre) {
     return new Jugador(nombre, pilotoTitular, pilotoSuplente, true);
 }
 
-//Se debe asignar un piloto titular y suplente a tu usuario
-function generarUsuario() {
-  let pilotoUnoIndice = Math.floor(Math.random() * pilotos.length);
-  let pilotoDosIndice = pilotoUnoIndice;
-
-  while (pilotoDosIndice === pilotoUnoIndice) {
-      pilotoDosIndice =  Math.floor(Math.random() * pilotos.length);
-  }
-
-  return new Jugador(usuarioCreado.nombre, pilotos[pilotoUnoIndice], pilotos[pilotoDosIndice], false);
-}
-
 // Mostrar el nombre de la siguiente carrera por disputarse, con el lugar donde se disputa el gran premio y una breve descripción de la carrera.
 function cargarSiguienteCarrera() {
-  const nombreGP = document.getElementById('nombreGP');
-  const lugarGP = document.getElementById('lugarGP');
-  const descripcionGP = document.getElementById('descripcionGP');
+    const nombreGP = document.getElementById('nombreGP');
+    const lugarGP = document.getElementById('lugarGP');
+    const descripcionGP = document.getElementById('descripcionGP');
 
-  let siguienteGranPremio = grandesPremios.find(function (granPremio) {
+    let siguienteGranPremio = grandesPremios.find(function (granPremio) {
       return !granPremio.disputado;
-  });
+    });
 
-  nombreGP.textContent = siguienteGranPremio.nombre;
-  lugarGP.textContent = siguienteGranPremio.lugar;
-  descripcionGP.textContent = siguienteGranPremio.descripcion;
+    nombreGP.textContent = siguienteGranPremio.nombre;
+    lugarGP.textContent = siguienteGranPremio.lugar;
+    descripcionGP.textContent = siguienteGranPremio.descripcion;
+}
+
+/**
+ *
+ * @param jugador {Jugador}
+ */
+function obtenerPuntuacion(jugador) {
+    jugador.puntuacion = 0;
+    return jugador.pilotoTitular.puntuacion + jugador.pilotoSuplente.puntuacion;
 }
