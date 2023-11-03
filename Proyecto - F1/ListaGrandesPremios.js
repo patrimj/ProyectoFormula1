@@ -1,4 +1,5 @@
 import {GranPremio} from "./Clases/GranPremio.js";
+import {constantes} from "./constantes.js";
 
 export let grandesPremios = [
     new GranPremio('Gran Premio de Bahrein', 'Shakir', 'Gran Premio de Bahrein en el Circuito Internacional de Shakir.', false),
@@ -38,3 +39,23 @@ export const PUNTUACION = [
     2,
     1
 ];
+
+export function obtenerSiguienteGranPremio() {
+    let resultados;
+    let siguienteGranPremio;
+    try {
+        resultados = JSON.parse(localStorage.getItem(constantes.claveResultados));
+
+        siguienteGranPremio = resultados.find(function (granPremio) {
+            return !granPremio.disputado;
+        });
+
+        if (!siguienteGranPremio) {
+            siguienteGranPremio = false;
+        }
+
+        return siguienteGranPremio;
+    } catch (exception) {
+        return false;
+    }
+}

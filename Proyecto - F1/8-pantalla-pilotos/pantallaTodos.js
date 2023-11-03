@@ -34,6 +34,15 @@ function infoPilotos() {
     }
     fila.appendChild(celdaPropiedad);
 
+    // Crea una celda para los puntos del piloto
+    const celdaPuntos = document.createElement('td');
+    if (piloto.propiedadJugador) {
+      celdaPropiedad.textContent = `Propiedad de: ${piloto.propiedadJugador}, Rol: ${piloto.rol}`;
+    } else {
+      celdaPropiedad.textContent = 'Libre';
+    }
+    fila.appendChild(celdaPropiedad);
+
     // Agrega la fila a la tabla
     tabla.appendChild(fila);
   });

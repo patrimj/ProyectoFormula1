@@ -44,7 +44,10 @@ function simularGranPremio(granPremio) {
             piloto.puntuacion += PUNTUACION[i];
         }
 
-        granPremio.resultados.push(piloto);
+        granPremio.resultados.push({
+            codigo: piloto.codigo,
+            puntuacion: PUNTUACION[i]
+        });
     }
 
     return granPremio.resultados;
@@ -52,11 +55,15 @@ function simularGranPremio(granPremio) {
 
 //Se deben cargar los grandes premios con todas las puntuaciones de todas las carreras.
 function generarResultados() {
-    for (let i = 0; i < grandesPremios.length; i++) {
-        simularGranPremio(grandesPremios[i]);
+    let temp = grandesPremios;
+
+    for (let i = 0; i < temp.length; i++) {
+        simularGranPremio(temp[i]);
     }
 
-    return grandesPremios;
+    console.log(temp[0]);
+
+    return temp;
 }
 
 function obtenerPilotoDisponible() {
@@ -87,8 +94,8 @@ function cargarSiguienteCarrera() {
     const lugarGP = document.getElementById('lugarGP');
     const descripcionGP = document.getElementById('descripcionGP');
 
-    let siguienteGranPremio = grandesPremios.find(function (granPremio) {
-      return !granPremio.disputado;
+    let siguienteGranPremio = resultados.find(function (granPremio) {
+        return !granPremio.disputado;
     });
 
     nombreGP.textContent = siguienteGranPremio.nombre;
