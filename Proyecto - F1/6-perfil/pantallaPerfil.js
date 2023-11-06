@@ -16,7 +16,7 @@ window.onload = function() { // Cuando se cargue la p√°gina se ejecuta la funci√
     document.getElementById('apellido').value = jugador.apellido;
     document.getElementById('correo').value = jugador.correo;
     document.getElementById('nick').value = jugador.nick;
-}
+};
 
 function actualizarDatosUsuarioYContrasena() {
 

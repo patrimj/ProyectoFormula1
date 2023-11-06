@@ -53,13 +53,17 @@ onload = function () {
 
     // Ordenamos los pilotos según su puntuación.
     pilotos.sort(function (pilotoA, pilotoB) {
+        let value;
+
         if (pilotoA.puntuacion > pilotoB.puntuacion) {
-            return -1;
+            value = -1;
+        } else if (pilotoA.puntuacion > pilotoB.puntuacion) {
+            value = 1;
         } else {
-            return 1;
+            value = 0;
         }
 
-        return 0;
+        return value;
     });
 
     // Recorre la lista de pilotos
