@@ -6,8 +6,6 @@ import {constantes} from "../constantes.js";
 //coge el usuario del registro de localStorage
 let usuarioCreado = JSON.parse(localStorage.getItem(constantes.claveJugador));
 
-console.log(usuarioCreado);
-
 // TODO: Generador de nombres.
 const botUno = generarBot('BotUno');
 const botDos = generarBot('BotDos');
@@ -26,6 +24,7 @@ botDos.puntuacion = obtenerPuntuacion(botDos);
 localStorage.setItem(constantes.claveBotUno, JSON.stringify(botUno));
 localStorage.setItem(constantes.claveBotDos, JSON.stringify(botDos));
 localStorage.setItem(constantes.claveResultados, JSON.stringify(resultados));
+localStorage.setItem(constantes.clavePilotos, JSON.stringify(pilotos));
 localStorage.setItem(constantes.claveJugador, JSON.stringify(usuarioCreado));
 
 cargarSiguienteCarrera();
@@ -40,13 +39,11 @@ function simularGranPremio(granPremio) {
         const indice = Math.floor(Math.random() * temp.length - 1);
         let piloto = temp.splice(indice, 1)[0];
 
-        if (i < PUNTUACION.length - 1) {
-            piloto.puntuacion += PUNTUACION[i];
-        }
+        let puntuacion = i <= PUNTUACION.length - 1 ? PUNTUACION[i] : 0;
 
         granPremio.resultados.push({
             codigo: piloto.codigo,
-            puntuacion: PUNTUACION[i]
+            puntuacion: puntuacion
         });
     }
 

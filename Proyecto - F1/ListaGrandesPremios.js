@@ -39,23 +39,3 @@ export const PUNTUACION = [
     2,
     1
 ];
-
-export function obtenerSiguienteGranPremio() {
-    let resultados;
-    let siguienteGranPremio;
-    try {
-        resultados = JSON.parse(localStorage.getItem(constantes.claveResultados));
-
-        siguienteGranPremio = resultados.find(function (granPremio) {
-            return !granPremio.disputado;
-        });
-
-        if (!siguienteGranPremio) {
-            siguienteGranPremio = false;
-        }
-
-        return siguienteGranPremio;
-    } catch (exception) {
-        return false;
-    }
-}
