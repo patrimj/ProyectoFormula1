@@ -6,8 +6,6 @@ import {constantes} from "../constantes.js";
 //coge el usuario del registro de localStorage
 let usuarioCreado = JSON.parse(localStorage.getItem(constantes.claveJugador));
 
-console.log(usuarioCreado);
-
 // TODO: Generador de nombres.
 const botUno = generarBot('BotUno');
 const botDos = generarBot('BotDos');
@@ -26,6 +24,7 @@ botDos.puntuacion = obtenerPuntuacion(botDos);
 localStorage.setItem(constantes.claveBotUno, JSON.stringify(botUno));
 localStorage.setItem(constantes.claveBotDos, JSON.stringify(botDos));
 localStorage.setItem(constantes.claveResultados, JSON.stringify(resultados));
+localStorage.setItem(constantes.clavePilotos, JSON.stringify(pilotos));
 localStorage.setItem(constantes.claveJugador, JSON.stringify(usuarioCreado));
 
 cargarSiguienteCarrera();
@@ -40,11 +39,12 @@ function simularGranPremio(granPremio) {
         const indice = Math.floor(Math.random() * temp.length - 1);
         let piloto = temp.splice(indice, 1)[0];
 
-        if (i < PUNTUACION.length - 1) {
-            piloto.puntuacion += PUNTUACION[i];
-        }
+        let puntuacion = i <= PUNTUACION.length - 1 ? PUNTUACION[i] : 0;
 
-        granPremio.resultados.push(piloto);
+        granPremio.resultados.push({
+            codigo: piloto.codigo,
+            puntuacion: puntuacion
+        });
     }
 
     return granPremio.resultados;
@@ -52,11 +52,15 @@ function simularGranPremio(granPremio) {
 
 //Se deben cargar los grandes premios con todas las puntuaciones de todas las carreras.
 function generarResultados() {
-    for (let i = 0; i < grandesPremios.length; i++) {
-        simularGranPremio(grandesPremios[i]);
+    let temp = grandesPremios;
+
+    for (let i = 0; i < temp.length; i++) {
+        simularGranPremio(temp[i]);
     }
 
-    return grandesPremios;
+    console.log(temp[0]);
+
+    return temp;
 }
 
 function obtenerPilotoDisponible() {
@@ -87,8 +91,8 @@ function cargarSiguienteCarrera() {
     const lugarGP = document.getElementById('lugarGP');
     const descripcionGP = document.getElementById('descripcionGP');
 
-    let siguienteGranPremio = grandesPremios.find(function (granPremio) {
-      return !granPremio.disputado;
+    let siguienteGranPremio = resultados.find(function (granPremio) {
+        return !granPremio.disputado;
     });
 
     nombreGP.textContent = siguienteGranPremio.nombre;

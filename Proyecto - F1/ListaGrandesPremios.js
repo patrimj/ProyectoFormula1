@@ -1,4 +1,5 @@
 import {GranPremio} from "./Clases/GranPremio.js";
+import {constantes} from "./constantes.js";
 
 export let grandesPremios = [
     new GranPremio('Gran Premio de Bahrein', 'Shakir', 'Gran Premio de Bahrein en el Circuito Internacional de Shakir.', false),
