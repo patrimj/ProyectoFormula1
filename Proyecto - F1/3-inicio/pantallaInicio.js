@@ -2,32 +2,31 @@ import { pilotos } from '../ListaPilotos.js';
 import { Jugador } from '../Clases/Jugador.js';
 import {grandesPremios, PUNTUACION} from "../ListaGrandesPremios.js";
 import {constantes} from "../constantes.js";
+import {ROLES} from "../Roles.js";
 
 //coge el usuario del registro de localStorage
 let usuarioCreado = JSON.parse(localStorage.getItem(constantes.claveJugador));
 
 // TODO: Generador de nombres.
-const botUno = generarBot('BotUno');
-const botDos = generarBot('BotDos');
+let botUno = generarBot('BotUno');
+let botDos = generarBot('BotDos');
 
-usuarioCreado.pilotos = [
-    obtenerPilotoDisponible(),
-    obtenerPilotoDisponible()
-];
+let resultados;
 
-const resultados = generarResultados();
+onload = function () {
+    usuarioCreado.pilotoTitular = obtenerPilotoDisponible(usuarioCreado.nombre, ROLES.titular);
+    usuarioCreado.pilotoSuplente = obtenerPilotoDisponible(usuarioCreado.nombre, ROLES.suplente);
 
-usuarioCreado.puntuacion = obtenerPuntuacion(usuarioCreado);
-botUno.puntuacion = obtenerPuntuacion(botUno);
-botDos.puntuacion = obtenerPuntuacion(botDos);
+    resultados = generarResultados();
 
-localStorage.setItem(constantes.claveBotUno, JSON.stringify(botUno));
-localStorage.setItem(constantes.claveBotDos, JSON.stringify(botDos));
-localStorage.setItem(constantes.claveResultados, JSON.stringify(resultados));
-localStorage.setItem(constantes.clavePilotos, JSON.stringify(pilotos));
-localStorage.setItem(constantes.claveJugador, JSON.stringify(usuarioCreado));
+    localStorage.setItem(constantes.claveBotUno, JSON.stringify(botUno));
+    localStorage.setItem(constantes.claveBotDos, JSON.stringify(botDos));
+    localStorage.setItem(constantes.claveResultados, JSON.stringify(resultados));
+    localStorage.setItem(constantes.clavePilotos, JSON.stringify(pilotos));
+    localStorage.setItem(constantes.claveJugador, JSON.stringify(usuarioCreado));
 
-cargarSiguienteCarrera();
+    cargarSiguienteCarrera();
+};
 
 function simularGranPremio(granPremio) {
     granPremio.resultados = [];
@@ -58,12 +57,10 @@ function generarResultados() {
         simularGranPremio(temp[i]);
     }
 
-    console.log(temp[0]);
-
     return temp;
 }
 
-function obtenerPilotoDisponible() {
+function obtenerPilotoDisponible(nombreJugador, rol) {
     let indice = Math.floor(Math.random() * pilotos.length);
     let piloto = pilotos[indice];
 
@@ -72,6 +69,8 @@ function obtenerPilotoDisponible() {
         piloto = pilotos[indice];
     }
 
+    piloto.rol = rol;
+    piloto.propiedadJugador = nombreJugador;
     piloto.disponible = false;
 
     return piloto;
@@ -79,10 +78,12 @@ function obtenerPilotoDisponible() {
 
 // Se deben generarse los dos usuarios bot con sus pilotos suplentes y titulares respectivamente
 function generarBot(nombre) {
-    let pilotoTitular = obtenerPilotoDisponible();
-    let pilotoSuplente = obtenerPilotoDisponible();
-
-    return new Jugador(nombre, pilotoTitular, pilotoSuplente, true);
+    return new Jugador(
+        nombre,
+        obtenerPilotoDisponible(nombre, ROLES.titular),
+        obtenerPilotoDisponible(nombre, ROLES.suplente),
+        true
+    );
 }
 
 // Mostrar el nombre de la siguiente carrera por disputarse, con el lugar donde se disputa el gran premio y una breve descripción de la carrera.
@@ -104,7 +105,3 @@ function cargarSiguienteCarrera() {
  *
  * @param jugador {Jugador}
  */
-function obtenerPuntuacion(jugador) {
-    jugador.puntuacion = 0;
-    return jugador.pilotoTitular.puntuacion + jugador.pilotoSuplente.puntuacion;
-}

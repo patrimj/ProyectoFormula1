@@ -32,7 +32,7 @@ function cargarDatos(){
     //verifica si el usuario existe en el localStorage y si el correo y la contraseña son los mismos
     if (usuarioCreado !== null) {
         if (usuarioCreado.correo === correoInput.value && usuarioCreado.contrasena === contrasenaInput.value) {
-            window.location.href = "../3. Pantalla Inicio/pantallaInicio.html";
+            window.location.href = "../3-inicio/pantallaInicio.html";
         } else if (usuarioCreado.correo !== correoInput.value) {
             msg.textContent = 'El correo no es correcto'; 
         } else {
