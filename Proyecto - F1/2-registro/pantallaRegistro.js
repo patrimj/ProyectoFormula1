@@ -20,7 +20,7 @@ registrarseBtn.addEventListener('click', function(event) {
     if (usuarioCreado.nombre !== '' && usuarioCreado.apellido !== '' && usuarioCreado.correo !== '' && usuarioCreado.nick !== '' && usuarioCreado.contrasena !== '') {
         let usuarioJSON = JSON.stringify(usuarioCreado);
         localStorage.setItem('usuario', usuarioJSON); 
-        window.location.href = "../1. Pantalla Inicial/pantallaInicial.html";
+        window.location.href = "../1-inicial/pantallaInicial.html";
     }
 });
 
