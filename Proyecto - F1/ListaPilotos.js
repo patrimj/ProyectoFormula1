@@ -1,6 +1,6 @@
 import {Piloto} from './Clases/Piloto.js';
 
-export let pilotos = [
+export let listaPilotos = [
     new Piloto(
         "alexander-albon",
         "Alex",
@@ -40,7 +40,7 @@ export let pilotos = [
         "george-russell",
         "George",
         "Russell",
-        "GRB"
+        "GBR"
     ),
 
     new Piloto(

@@ -1,7 +1,6 @@
 import {GranPremio} from "./Clases/GranPremio.js";
-import {constantes} from "./constantes.js";
 
-export let grandesPremios = [
+export let listaGrandesPremios = [
     new GranPremio('Gran Premio de Bahrein', 'Shakir', 'Gran Premio de Bahrein en el Circuito Internacional de Shakir.', false),
     new GranPremio('Gran Premio de Arabia Saudi', 'Jeddah', 'Gran Premio de Arabia Saudi en el circuito urbano de Jeddah.', false),
     new GranPremio('Gran Premio de Australia', 'Melbourne', 'Gran Premio de Australia en el Circuito de Albert Park.', false),
@@ -27,7 +26,7 @@ export let grandesPremios = [
     new GranPremio('Gran Premio de Abu Dhabi', 'Yas Marina', 'Gran Premio de Abu Dhabi en el circuito de Yas Marina', false),
 ];
 
-export const PUNTUACION = [
+export const puntuaciones = [
     25,
     18,
     15,

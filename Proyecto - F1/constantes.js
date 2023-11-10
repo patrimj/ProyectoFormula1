@@ -3,5 +3,6 @@ export const constantes = {
     claveBotUno: "botUno",
     claveBotDos: "botDos",
     claveJugador: "usuario",
-    claveResultados: "resultados"
+    claveResultados: "resultados",
+    oscuro: "oscuro"
 };
