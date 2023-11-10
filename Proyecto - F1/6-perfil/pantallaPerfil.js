@@ -4,7 +4,7 @@ import {constantes} from "../constantes.js";
 
 function guardarDatosUsuario(jugador) {
     var usuarioJSON = JSON.stringify(jugador);
-    localStorage.setItem('jugador', usuarioJSON);
+    localStorage.setItem('usuario', usuarioJSON);
 }
 
 function obtenerDatosUsuario() {
@@ -103,8 +103,6 @@ function actualizarDatosUsuarioYContrasena() {
     if (nuevaContrasena !== '') {
         jugador.contrasena = nuevaContrasena;
     }
-
-    console.log("Nombre:", jugador.nombre,"Apellido:", jugador.apellido,"Correo:", jugador.correo,"Nick:", jugador.nick,"Contraseña", jugador.contrasena);
     
     guardarDatosUsuario(jugador);
 }
