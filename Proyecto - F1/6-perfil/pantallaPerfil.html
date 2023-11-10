@@ -2,58 +2,111 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Pantalla de Perfil</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>F1 Fantasy - Perfil</title>
+
+		<!-- CSS Skeleton
+          –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+          <link rel="stylesheet" href="../../Skeleton/skeleton.css">
+          <link rel="stylesheet" href="../../Skeleton/normalize.css">
+  
+          <!-- CSS Proyecto
+          –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+          <link class="comun" rel="stylesheet" type="text/css" href="../superComun.css">
+          <link class="especifico"  rel="stylesheet" type="text/css" href="pantallaPerfil.css">
+
+        <!-- Favicon
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <link rel="icon" type="image/png" href="../../fotos/logo.png" width="100%" >
+    
     </head>
+
     <body>
+		<header>
+            <a href="../3-inicio/pantallaInicio.html" id="inicio">
+                <img src="../../fotos/logo.png" alt="logo" width="120px">
+            </a>
+			<h1>FANTASY FORMULA 1</h1> </br>
+			<a href="../6-perfil/pantallaPerfil.html" id="perfil">
+				<img src="../../fotos/logo-perfil.webp" alt="logo" width="35px" >
+			</a>
+		</header>
+        <div id="contenedor">
+            <nav id="menu">
+                <ul>
+                    <li><a href="../8-pilotos/pantallaTodos.html" id="pilotos">Pilotos</a></li>
+                    <li><a href="../4-tusPilotos/pantallaPilotos.html" id="tuspilotos">Tus Pilotos</a></li>
+                    <li><a href="../3-inicio/pantallaInicio.html" id="inicio"><img src="../../fotos/Logo-1-Blanco.png" alt="logo" width="80px" ></a></li>
+                    <li><a href="../5-clasificación/pantallaClasificacion.html" id="clasificacion">Clasificación</a></li>
+                    <li><a href="../7-administracion/pantallaAdministracion.html" id="administracion">Administracion</a></li>
+                </ul>
+            </nav>
+        </div>
 
-    <nav id="menu">
-        <ul>
-            <li><a href="../3-inicio/pantallaInicio.html" id="inicio">Inicio</a></li>
-            <li><a href="../8-pilotos/pantallaTodos.html" id="pilotos">Pilotos</a></li>
-            <li><a href="../4-tusPilotos/pantallaPilotos.html" id="tuspilotos">Tus Pilotos</a></li>
-            <li><a href="../5-clasificación/pantallaClasificacion.html" id="clasificacion">Clasificación</a></li>
-            <li><a href="../6-perfil/pantallaPerfil.html" id="perfil">Perfil</a></li>
-            <li><a href="../7-administracion/pantallaAdministracion.html" id="administracion">Administracion</a></li>
-        </ul>
-    </nav>
+        <div class="contenedor-formularios">
+            <form id="formulario-actualizar">
+                <h2>Perfil</h2>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
 
-    <h1>Perfil</h1>
-    <form id="formulario-actualizar">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required>
-            </br></br>
-        <label for="apellido">Apellidos:</label>
-        <input type="text" id="apellido" name="apellidos" required>
-            </br></br>
-        <label for="correo">Correo:</label>
-        <input type="email" id="correo" name="correo" required>
-            </br></br>
-        <label for="nick">Nick:</label>
-        <input type="text" id="nick" name="nick" required disabled>
-            </br></br>
-            <!--
-        <label for="contrasena">Contraseña:</label>
-        <input type="password" id="contrasena" name="contrasena" required>
-            </br></br>-->
-        <button type="submit" id="actualizar">Actualizar</button>
-    </form>
+                <label for="apellido">Apellidos:</label>
+                <input type="text" id="apellido" name="apellidos" required>
 
-    <h2>Cambiar Contraseña</h2>
-    <form id="formulario-cambiar-contraseña">
-        <label for="antigua-contrasena">Antigua Contraseña:</label>
-        <input type="password" id="antigua-contrasena" name="antigua-contrasena" required>
-            </br></br>
-        <label for="nueva-contrasena">Nueva Contraseña:</label>
-        <input type="password" id="nueva-contrasena" name="nueva-contrasena" required>
-            </br></br>
-        <label for="confirmacion-nueva-contrasena">Confirmación de Nueva Contraseña:</label>
-        <input type="password" id="confirmacion-nueva-contrasena" name="confirmacion-nueva-contrasena" required>
-            </br></br>
-        <button type="submit" id="cambiar-contrasena">Cambiar Contraseña</button>
-    </form>
+                <label for="correo">Correo:</label>
+                <input type="email" id="correo" name="correo" required>
 
-    <p id="msg"></p>
-    <script type="module" src="pantallaPerfil.js"></script>
+                <label for="nick">Nick:</label>
+                <input type="text" id="nick" name="nick" required disabled>
+
+                <p id="msg"></p>
+                <div id="botonescss" class="botones">
+                    <button class="button"  type="submit" id="actualizar"> Actualizar</button>
+                    <button class="button" type="submit" id="cerrarSesionBorrar"> Cerrar sesion y borrar datos</button>
+                </div>
+
+
+            </form>
+            <form id="formulario-cambiar-contraseña">
+                <h2>Cambiar Contraseña</h2>
+                <label for="antigua-contrasena">Antigua Contraseña:</label>
+                <input type="password" id="antigua-contrasena" name="antigua-contrasena" required>
+                </br></br>
+                <label for="nueva-contrasena">Nueva Contraseña:</label>
+                <input type="password" id="nueva-contrasena" name="nueva-contrasena" required>
+                </br></br>
+                <label for="confirmacion-nueva-contrasena">Confirmación de Nueva Contraseña:</label>
+                <input type="password" id="confirmacion-nueva-contrasena" name="confirmacion-nueva-contrasena" required>
+                </br></br>
+                <p id="msg"></p>
+                <div id="botonescss" class="botones">
+                    <button class="button"  type="submit" id="cambiar-contrasena"> Cambiar Contraseña</button>
+                    <button class="button" type="submit" id="cerrarSesion"> Cerrar sesion</button>
+                </div>
+            </form>
+        </div>
+
+        <video autoplay muted loop id="myVideo">
+            <source src="../../video1.mp4" type="video/mp4">
+        </video>
+
+        <footer>
+			<div class="footer-contenido">
+				<div class="redes-sociales">
+					<p>Puedes encontrarnos en:</p>
+					<a href="https://www.instagram.com/" target="_blank"><img src="../../fotos/icono_instagram.webp" alt="Instagram" height="68px"></a>
+					<a href="https://twitter.com/?lang=es " target="_blank"><img src="../../fotos/icono_twitter.png" alt="Twitter" height="55px"></a>
+					<a href="https://www.facebook.com/?locale=es_ES" target="_blank"><img src="../../fotos/icono_facebook.png" alt="Facebook" height="55px"></a>
+				</div>
+				<div class="politica-privacidad">
+					<a href="politica-de-privacidad.html">Política de Privacidad</a>
+				</div>
+				<div class="copyright">
+					<span>&copy; 2023 F1 Fantasy</span>
+				</div> 
+			</div>
+		</footer>
+
+        <script type="module" src="pantallaPerfil.js"></script>
 
     </body>
 </html>
