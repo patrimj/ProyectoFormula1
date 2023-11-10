@@ -36,12 +36,10 @@ onload = function () {
         localStorage.setItem(constantes.claveJugador, JSON.stringify(usuarioCreado));
 
     } else {
-        botUno = JSON.parse(localStorage.getItem(constantes.claveBotUno))
-        botDos = JSON.parse(localStorage.getItem(constantes.claveBotUno))
-        resultados = JSON.parse(localStorage.getItem(constantes.claveResultados))
+        botUno = JSON.parse(localStorage.getItem(constantes.claveBotUno));
+        botDos = JSON.parse(localStorage.getItem(constantes.claveBotUno));
+        resultados = JSON.parse(localStorage.getItem(constantes.claveResultados));
     }
-
-    localStorage.setItem(constantes.oscuro, JSON.stringify(true));
 
     cargarSiguienteCarrera();
 };
@@ -94,7 +92,7 @@ function elegirNombresBots() {
     let indiceDos = Math.floor(Math.random() * listaNombresBots.length);
 
     while (indiceDos === indiceUno) {
-        indiceDos = listaNombresBots[Math.floor(Math.random() * listaNombresBots.length)];
+        indiceDos = listaNombresBots[Math.floor(Math.random() * listaNombresBots.length - 1)];
     }
 
     return [
