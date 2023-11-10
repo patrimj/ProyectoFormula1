@@ -1,0 +1,114 @@
+$color_1: #d3d3d3;
+$color_2: #4bcb42;
+$color_3: #ffffff;
+$font-family_1: 'Formula1-Regular', sans-serif;
+$font-family_2: 'Formula1-Italic';
+$background-color_1: rgba(8, 8, 10, 0.2);
+$background-color_2: #287223;
+$background-color_3: #282828;
+$background-color_4: #722323;
+$border-color_1: #4bcb42;
+$border-color_2: #cbcbcb;
+$border-color_3: #cb4242;
+
+/*---------------- TIPOGRAFÍAS --------------------*/
+@font-face {
+	font-family: 'Formula1-Wide';
+	src: url('../fuente/Formula1-Wide.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Formula1-Bold';
+	src: url('../fuente/Formula1-Bold-4.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Formula1-Italic';
+	src: url('../fuente/Formula1-Italic.ttf') format('truetype');
+}
+/*---------------- CUERPO --------------------*/
+/*---------------- BOTONES --------------------*/
+/*---------------- BIENVENIDA --------------------*/
+/*---------------- MAIN --------------------*/
+&:root {
+	--negrofondo: rgba(8, 8, 10, 0.1);
+	--negroacento: rgba(23, 23, 31, 0.8);
+	--rojoacento: #ef2626;
+}
+body {
+	font-family: $font-family_1;
+	display: flex;
+}
+button {
+	border: 3px solid var(--negroAcento);
+	color: $color_1;
+	backdrop-filter: blur(10px);
+	height: calc(100% + 2em);
+	background-color: $background-color_1;
+	font-size: 1.5em;
+	cursor: pointer;
+	font-family: $font-family_2;
+	border-radius: 999em;
+	margin: 1em;
+	&:focus {
+		border: 3px solid var(--negroAcento);
+		color: $color_1;
+		backdrop-filter: blur(10px);
+		height: calc(100% + 2em);
+		background-color: $background-color_1;
+		font-size: 1.5em;
+		cursor: pointer;
+		font-family: $font-family_2;
+		border-radius: 999em;
+		margin: 1em;
+	}
+	&:hover {
+		transition: 0.2s ease-in;
+	}
+}
+#bienvenidaUsuario {
+	display: inline-block;
+	font-size: 2em;
+	color: $color_2;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+	padding: 10px;
+	border-radius: 10px;
+	background: rgba(8, 8, 10, 0.457);
+	margin-bottom: 20px;
+}
+.jugar {
+	padding-top: 50px;
+	padding-bottom: 30px;
+}
+main {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	flex: 50%;
+	gap: 4em;
+	align-items: center;
+	justify-content: center;
+	div {
+		display: flex;
+		flex-direction: column;
+	}
+}
+#lanzarSiguiente {
+	&:hover {
+		background-color: $background-color_2;
+		color: $color_3;
+		border-color: $border-color_1;
+	}
+}
+#alternarModo {
+	&:hover {
+		background-color: $background-color_3;
+		color: $color_3;
+		border-color: $border-color_2;
+	}
+}
+#reiniciar {
+	&:hover {
+		background-color: $background-color_4;
+		color: $color_3;
+		border-color: $border-color_3;
+	}
+}

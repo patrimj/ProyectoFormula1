@@ -1,0 +1,50 @@
+$color_1: white;
+$font-family_1: 'Formula1-Regular', sans-serif;
+$font-family_2: "Formula1-Bold";
+$background-color_1: var(--negroFondo);
+
+/*---------------- CUERPO --------------------*/
+/*---------------- DATOS PILOTOS --------------------*/
+/*---------------- TABLA --------------------*/
+body {
+	font-family: $font-family_1;
+	display: flex;
+}
+.bandera {
+	width: 1.5em;
+	height: auto;
+	border-radius: 999em;
+}
+.fotoPiloto {
+	border-radius: 999em;
+	object-fit: cover;
+	width: 3.5em;
+	height: 3.5em;
+	border: 5px solid var(--negroAcento);
+}
+.celdaPiloto {
+	font-family: $font-family_2;
+}
+.celdaPuntos {
+	font-size: 50px;
+}
+table {
+	color: $color_1;
+	border-collapse: initial;
+	font-size: 2em;
+	border-radius: 0 3em 0 0;
+	border-right: 4px solid var(--rojoAcento);
+	border-top: 4px solid var(--rojoAcento);
+	background-color: $background-color_1;
+	backdrop-filter: blur(10px);
+}
+div {
+	border: none;
+}
+tr {
+	border: none;
+}
+td {
+	padding: 1em;
+	font-family: $font-family_2;
+}
