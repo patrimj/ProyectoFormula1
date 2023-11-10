@@ -15,7 +15,7 @@ var usuarioCreado = {
 };
 
 registrarseBtn.addEventListener('click', function(event) {
-    event.preventDefault(); // Evita que se recargue la página
+    event.preventDefault(); 
     cargarDatos();
     if (usuarioCreado.nombre !== '' && usuarioCreado.apellido !== '' && usuarioCreado.correo !== '' && usuarioCreado.nick !== '' && usuarioCreado.contrasena !== '') {
         let usuarioJSON = JSON.stringify(usuarioCreado);
@@ -24,7 +24,6 @@ registrarseBtn.addEventListener('click', function(event) {
     }
 });
 
-// Validación de datos
 function cargarDatos(){
     const nombreRegex = /^[A-Za-z]{2,20}$/;
     const apellidoRegex = /^[A-Za-z]{2,30}$/;

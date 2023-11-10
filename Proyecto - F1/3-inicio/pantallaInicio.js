@@ -9,7 +9,7 @@ import {alternarModo} from "../alternarModo.js";
 let granPremioDiv = document.querySelector("#granPremioDiv");
 let ganadorDiv = document.querySelector("#terminado");
 
-//coge el usuario del registro de localStorage
+
 let usuarioCreado = JSON.parse(localStorage.getItem(constantes.claveJugador));
 let botUno;
 let botDos;
@@ -46,7 +46,7 @@ onload = function () {
     cargarSiguienteCarrera();
 };
 
-// Mostrar el nombre de la siguiente carrera por disputarse, con el lugar donde se disputa el gran premio y una breve descripción de la carrera.
+
 function cargarSiguienteCarrera() {
     const nombreGP = document.getElementById('nombreGP');
     const lugarGP = document.getElementById('lugarGP');
@@ -56,7 +56,6 @@ function cargarSiguienteCarrera() {
         return !granPremio.disputado;
     });
 
-    // Borramos la informacion de los grandes premios, ya que no hay ninguno mas.
     if (!siguienteGranPremio) {
         granPremioDiv.hidden = true;
         ganadorDiv.hidden = false;

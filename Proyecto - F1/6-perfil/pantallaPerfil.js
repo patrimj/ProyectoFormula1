@@ -13,7 +13,7 @@ function obtenerDatosUsuario() {
     return usuarioCreado;
 }
 
-window.onload = function() { // Cuando se cargue la página se ejecuta la función que rellena los campos con los datos del usuario guardados en el localStorage
+window.onload = function() { 
     alternarModo(JSON.parse(localStorage.getItem(constantes.oscuro)), "pantallaPerfil");
 
     let jugador = obtenerDatosUsuario();
@@ -25,7 +25,6 @@ window.onload = function() { // Cuando se cargue la página se ejecuta la funci�
 
 function actualizarDatosUsuarioYContrasena() {
 
-    // cogemos los valores de los campos del formulario
     const nombre = document.getElementById('nombre').value;
     const apellido = document.getElementById('apellido').value;
     const correo = document.getElementById('correo').value;
@@ -33,10 +32,8 @@ function actualizarDatosUsuarioYContrasena() {
     let nuevaContrasena = document.getElementById('nueva-contrasena').value;
     let confirmacionNuevaContrasena = document.getElementById('confirmacion-nueva-contrasena').value;
 
-    // datos actuales del usuario
     const jugador = obtenerDatosUsuario();
 
-    // validaciones
     const nombreRegex = /^[A-Za-z]{2,20}$/;
     const apellidoRegex = /^[A-Za-z]{2,30}$/;
     const correoRegex = /^[A-Za-z0-9_]{2,15}@[A-Za-z0-9_]{3,15}\.[A-Za-z0-9_]{2,4}$/;
@@ -65,7 +62,6 @@ function actualizarDatosUsuarioYContrasena() {
         errores += 'El correo es incorrecto. ';
     }
 
-    // Si se proporcionó una nueva contraseña, es decir si además de modificar el perfil quiere cambiar la contraseña
     if (nuevaContrasena !== '' || contrasenaAntigua !== '') {
 
         if (!contrasenaValida) {
@@ -89,13 +85,11 @@ function actualizarDatosUsuarioYContrasena() {
         }
     }    
 
-    //si no hay errores, se actualizan los datos del usuario
     if (errores !== '') {
         msg.textContent = errores;
         return;
     }
 
-    // actualizamos los datos del usuario si se han modificado, si no se han modificado se queda el valor que ya tenía
     if (nombre !== '') {
         jugador.nombre = nombre;
     }
@@ -112,7 +106,6 @@ function actualizarDatosUsuarioYContrasena() {
 
     console.log("Nombre:", jugador.nombre,"Apellido:", jugador.apellido,"Correo:", jugador.correo,"Nick:", jugador.nick,"Contraseña", jugador.contrasena);
     
-    // Guarda los nuevos datos del usuario en el localStorage
     guardarDatosUsuario(jugador);
 }
 
@@ -121,18 +114,18 @@ function actualizarDatosUsuarioYContrasena() {
 document.getElementById('formulario-actualizar').addEventListener('submit', function(evento) {
     evento.preventDefault();
     actualizarDatosUsuarioYContrasena();
-});// este evento se ejecuta cuando se pulsa el botón de actualizar
+});
 
 document.getElementById('formulario-cambiar-contraseña').addEventListener('submit', function(evento) {
     evento.preventDefault();
     actualizarDatosUsuarioYContrasena();
-});// este evento se ejecuta cuando se pulsa el botón de cambiar contraseña
+});
 
 document.getElementById('cerrarSesion').addEventListener('click', function () {
     window.location.href = "../1-inicial/pantallaInicial.html";
-}); // Este evento se ejecuta cuando se pulsa el botón de Cerrar sesión.
+});
 
 document.getElementById('cerrarSesionBorrar').addEventListener('click', function () {
     localStorage.clear()
     window.location.href = "../1-inicial/pantallaInicial.html";
-}); // Este evento se ejecuta cuando se pulsa el botón de Cerrar sesión.
+}); 

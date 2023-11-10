@@ -16,7 +16,6 @@ iniciarSesionBtn.addEventListener('click', function(event) {
 // FUNCIONES
 function cargarDatos(){
 
-    //coge el usuario del registro de localStorage
     var usuarioJSON = localStorage.getItem('usuario'); 
     var usuarioCreado = JSON.parse(usuarioJSON);
 
@@ -25,7 +24,6 @@ function cargarDatos(){
     msg.textContent = '';
     msg.style.color = "red";
 
-    //verifica si el usuario existe en el localStorage y si el correo y la contraseña son los mismos
     if (usuarioCreado !== null) {
         if (usuarioCreado.correo === correoInput.value && usuarioCreado.contrasena === contrasenaInput.value) {
             window.location.href = "../3-inicio/pantallaInicio.html";
