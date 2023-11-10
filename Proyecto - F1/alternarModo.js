@@ -43,17 +43,17 @@ function crearEnlace(comun, oscuro, nombre = "") {
 
     if (comun) {
         enlace.classList.add('comun');
-        enlace.href = '../superComun';
+        enlace.href = '../Css/superComun';
     } else {
         enlace.classList.add('especifico')
-        enlace.href = nombre;
+        enlace.href = '../Css/'+ nombre;
     }
 
     if (!oscuro) {
         enlace.href += "Claro"
     }
 
-    enlace.href += ".css" //.css.map
+    enlace.href += ".css" 
 
     console.log(enlace);
 

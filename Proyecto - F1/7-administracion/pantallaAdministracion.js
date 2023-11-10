@@ -47,14 +47,12 @@ botonLanzarSiguiente.onclick = function () {
     }
 
 
-    // Guardando los objetos en caché
     localStorage.setItem(constantes.clavePilotos, JSON.stringify(pilotos));
     localStorage.setItem(constantes.claveResultados, JSON.stringify(grandesPremios));
     localStorage.setItem(constantes.claveJugador, JSON.stringify(usuario));
     localStorage.setItem(constantes.claveBotUno, JSON.stringify(botUno));
     localStorage.setItem(constantes.claveBotDos, JSON.stringify(botDos));
 
-    // En caso de que exista un siguiente GP, se podrá avanzar. De lo contrario no.
     if (!obtenerSiguienteGranPremio()) {
         botonLanzarSiguiente.disabled = true;
         botonLanzarSiguiente.textContent = `Has completado todas los Grandes Premios`;
@@ -63,12 +61,12 @@ botonLanzarSiguiente.onclick = function () {
         botonLanzarSiguiente.textContent = `Lanzar ${siguienteGranPremio.nombre}`;
     }
 
-    // window.location.href = "../3-inicio/pantallaInicio.html"
+
 };
 
 function obtenerSiguienteGranPremio() {
     try {
-        // Busca entre la lista de grandes premios el primero sin disputarse.
+
         let siguienteGranPremio = grandesPremios.find(function (granPremio) {
             return !granPremio.disputado;
         });

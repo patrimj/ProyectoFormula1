@@ -1,12 +1,32 @@
 import {constantes} from "../constantes.js";
+import {alternarModo} from "../alternarModo.js";
 
 let jugadoresDiv = document.querySelector('#jugadores');
+let disputadosDiv = document.querySelector('#disputados');
 let botUno;
 let botDos;
 let jugador;
 let resultados;
 
+function calcularDisputados(resultados) {
+    let disputados = resultados.filter(function (granPremio) {
+       return granPremio.disputado === true;
+    }).length;
+
+    let titulo = document.createElement('h2');
+    let disputadosSpan = document.createElement('span');
+
+    disputadosSpan.id = 'disputadosNum';
+    titulo.textContent = "TOTAL DE GRANDES PREMIOS DISPUTADOS"
+    disputadosSpan.textContent = `${disputados}`;
+
+    disputadosDiv.appendChild(titulo);
+    disputadosDiv.appendChild(disputadosSpan);
+}
+
 onload = function () {
+    alternarModo(JSON.parse(localStorage.getItem(constantes.oscuro)), "pantallaClasificacion");
+
     try {
         botUno = JSON.parse(localStorage.getItem(constantes.claveBotUno));
         botDos = JSON.parse(localStorage.getItem(constantes.claveBotDos));
@@ -17,12 +37,8 @@ onload = function () {
 
         comprobarSiExisteTitular(jugador);
 
-        jugadores.forEach(function (jugador) {
-            console.log(jugador);
-            jugador.puntuacion = jugador.pilotoTitular.puntuacion + jugador.pilotoSuplente.puntuacion;
-        });
-
         colocarJugadores(jugadores);
+        calcularDisputados(resultados);
 
         localStorage.setItem(constantes.claveJugador, JSON.stringify(jugador));
         localStorage.setItem(constantes.claveBotUno, JSON.stringify(botUno));
@@ -43,7 +59,7 @@ function comprobarSiExisteTitular(jugador) {
 }
 
 function colocarJugadores(jugadores) {
-    // Se ordenan los jugadores segun su puntuación.
+
     jugadores.sort(function (a, b) {
         if (a.puntuacion < b.puntuacion) {
             return 1;
@@ -56,13 +72,16 @@ function colocarJugadores(jugadores) {
 
     let numSeccion = 0;
 
-    // Crear la infomacion de cada jugador
     jugadores.forEach(function (jugador) {
         numSeccion++;
 
         let seccionJugador = document.createElement('div');
         let nickJugador = document.createElement('span');
+        let esBot = document.createElement('div');
         let puntuacionJugador = document.createElement('span');
+
+        puntuacionJugador.classList.add('puntuacion');
+        nickJugador.classList.add('nick');
 
         seccionJugador.id = 'seccion' + numSeccion;
         nickJugador.textContent = jugador.nombre;

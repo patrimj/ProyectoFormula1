@@ -9,7 +9,7 @@ var usuario = {
 
 // EVENTOS
 iniciarSesionBtn.addEventListener('click', function(event) {
-    event.preventDefault();//evita que se recargue la página
+    event.preventDefault();
     cargarDatos();
 });
 
@@ -42,7 +42,7 @@ function cargarDatos(){
         msg.textContent = 'Ingrese una contraseña';
     }
 
-    if (msg.textContent === '') { // cargamos los datos.
+    if (msg.textContent === '') { 
         usuario.correo = correoInput.value;
         usuario.contrasena = contrasenaInput.value;
         console.log("Correo del usuario:", usuario.correo,"Contraseña del usuario:", usuario.contrasena);
