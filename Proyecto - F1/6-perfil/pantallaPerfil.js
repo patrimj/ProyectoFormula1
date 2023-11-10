@@ -1,3 +1,6 @@
+import {alternarModo} from "../alternarModo.js";
+import {constantes} from "../constantes.js";
+
 
 function guardarDatosUsuario(jugador) {
     var usuarioJSON = JSON.stringify(jugador);
@@ -11,6 +14,8 @@ function obtenerDatosUsuario() {
 }
 
 window.onload = function() { // Cuando se cargue la página se ejecuta la función que rellena los campos con los datos del usuario guardados en el localStorage
+    alternarModo(JSON.parse(localStorage.getItem(constantes.oscuro)), "pantallaPerfil");
+
     let jugador = obtenerDatosUsuario();
     document.getElementById('nombre').value = jugador.nombre;
     document.getElementById('apellido').value = jugador.apellido;
@@ -123,4 +128,11 @@ document.getElementById('formulario-cambiar-contraseña').addEventListener('subm
     actualizarDatosUsuarioYContrasena();
 });// este evento se ejecuta cuando se pulsa el botón de cambiar contraseña
 
-  
+document.getElementById('cerrarSesion').addEventListener('click', function () {
+    window.location.href = "../1-inicial/pantallaInicial.html";
+}); // Este evento se ejecuta cuando se pulsa el botón de Cerrar sesión.
+
+document.getElementById('cerrarSesionBorrar').addEventListener('click', function () {
+    localStorage.clear()
+    window.location.href = "../1-inicial/pantallaInicial.html";
+}); // Este evento se ejecuta cuando se pulsa el botón de Cerrar sesión.

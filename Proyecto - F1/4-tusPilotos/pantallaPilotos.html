@@ -1,19 +1,76 @@
+<!DOCTYPE html>
 <html>
-<body>
-<nav id="menu">
-    <ul>
-        <li><a href="../3-inicio/pantallaInicio.html" id="inicio">Inicio</a></li>
-        <li><a href="../8-pilotos/pantallaTodos.html" id="pilotos">Pilotos</a></li>
-        <li><a href="../4-tusPilotos/pantallaPilotos.html" id="tuspilotos">Tus Pilotos</a></li>
-        <li><a href="../5-clasificación/pantallaClasificacion.html" id="clasificacion">Clasificación</a></li>
-        <li><a href="../6-perfil/pantallaPerfil.html" id="perfil">Perfil</a></li>
-        <li><a href="../7-administracion/pantallaAdministracion.html" id="administracion">Administracion</a></li>
-    </ul>
-</nav>
-<div class="pilotos">
-    <div id="pilotoUno"></div>
-    <div id="pilotoDos"></div>
-</div>
-<script src="pantallaPilotos.js" type="module"></script>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>F1 Fantasy - Tus Pilotos</title>
+
+        <!-- CSS Skeleton
+     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <link rel="stylesheet" href="../../Skeleton/skeleton.css">
+        <link rel="stylesheet" href="../../Skeleton/normalize.css">
+
+        <!-- CSS Proyecto
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <link class="comun" rel="stylesheet" type="text/css" href="../superComun.css">
+        <link class="especifico"  rel="stylesheet" type="text/css" href="pantallaPilotos.css">
+
+        <!-- Favicon
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <link rel="icon" type="image/png" href="../../fotos/logo.png" width="100%" >
+
+    </head>
+    <body>
+        <header>
+            <a href="../3-inicio/pantallaInicio.html" id="inicio">
+                <img src="../../fotos/logo.png" alt="logo" width="120px">
+            </a>
+            <h1>FANTASY FORMULA 1</h1>
+            <a href="../6-perfil/pantallaPerfil.html" id="perfil">
+                <img src="../../fotos/logo-perfil.webp" alt="logo" width="35px" >
+            </a>
+        </header>
+        <div id="contenedor">
+            <nav id="menu">
+                <ul>
+                    <li><a href="../8-pilotos/pantallaTodos.html" id="pilotos">Pilotos</a></li>
+                    <li><a href="../4-tusPilotos/pantallaPilotos.html" id="tuspilotos">Tus Pilotos</a></li>
+                    <li><a href="../3-inicio/pantallaInicio.html" id="inicio"><img src="../../fotos/Logo-1-Blanco.png" alt="logo" width="80px" ></a></li>
+                    <li><a href="../5-clasificación/pantallaClasificacion.html" id="clasificacion">Clasificación</a></li>
+                    <li><a href="../7-administracion/pantallaAdministracion.html" id="administracion">Administracion</a></li>
+                </ul>
+            </nav>
+        </div>
+ 
+        <section>
+            <h3>MIS PILOTOS</h3>
+            <div id="pilotosDiv">
+                <div id="pilotoUno" class="divPiloto"></div>
+                <div id="pilotoDos" class="divPiloto"></div>
+            </div>
+        </section>
+
+        <video autoplay muted loop id="myVideo">
+            <source src="../../video1.mp4" type="video/mp4">
+        </video> 
+            </br></br>
+            <footer>
+                <div class="footer-contenido">
+                    <div class="redes-sociales">
+                        <p>Puedes encontrarnos en:</p>
+                        <a href="https://www.instagram.com/" target="_blank"><img src="../../fotos/icono_instagram.webp" alt="Instagram" height="68px"></a>
+                        <a href="https://twitter.com/?lang=es " target="_blank"><img src="../../fotos/icono_twitter.png" alt="Twitter" height="55px"></a>
+                        <a href="https://www.facebook.com/?locale=es_ES" target="_blank"><img src="../../fotos/icono_facebook.png" alt="Facebook" height="55px"></a>
+                    </div>
+                    <div class="politica-privacidad">
+                        <a href="politica-de-privacidad.html">Política de Privacidad</a>
+                    </div>
+                    <div class="copyright">
+                        <span>&copy; 2023 F1 Fantasy</span>
+                    </div> 
+                </div>
+            </footer>
+
+        <script src="pantallaPilotos.js" type="module"></script>
+    </body>
 </html>

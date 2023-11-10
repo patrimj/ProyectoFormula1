@@ -1,90 +1,50 @@
-import { pilotos } from '../ListaPilotos.js';
+import { listaPilotos } from '../ListaPilotos.js';
 import { Jugador } from '../Clases/Jugador.js';
-import {grandesPremios, PUNTUACION} from "../ListaGrandesPremios.js";
-import {constantes} from "../constantes.js";
-import {ROLES} from "../Roles.js";
+import { constantes } from "../constantes.js";
+import { ROLES } from "../Roles.js";
+import { listaGrandesPremios } from "../ListaGrandesPremios.js";
+import * as factoria from "../Factoria.js";
+import {alternarModo} from "../alternarModo.js";
+
+let granPremioDiv = document.querySelector("#granPremioDiv");
+let ganadorDiv = document.querySelector("#terminado");
 
 //coge el usuario del registro de localStorage
 let usuarioCreado = JSON.parse(localStorage.getItem(constantes.claveJugador));
-
-// TODO: Generador de nombres.
-let botUno = generarBot('BotUno');
-let botDos = generarBot('BotDos');
-
+let botUno;
+let botDos;
 let resultados;
 
 onload = function () {
-    usuarioCreado.pilotoTitular = obtenerPilotoDisponible(usuarioCreado.nombre, ROLES.titular);
-    usuarioCreado.pilotoSuplente = obtenerPilotoDisponible(usuarioCreado.nombre, ROLES.suplente);
+    alternarModo(JSON.parse(localStorage.getItem(constantes.oscuro)), "pantallaInicio");
 
-    resultados = generarResultados();
+    if (!localStorage.getItem(constantes.claveResultados) || localStorage.length === 0) {
+        let nombresBots = elegirNombresBots();
 
-    localStorage.setItem(constantes.claveBotUno, JSON.stringify(botUno));
-    localStorage.setItem(constantes.claveBotDos, JSON.stringify(botDos));
-    localStorage.setItem(constantes.claveResultados, JSON.stringify(resultados));
-    localStorage.setItem(constantes.clavePilotos, JSON.stringify(pilotos));
-    localStorage.setItem(constantes.claveJugador, JSON.stringify(usuarioCreado));
+        botUno = factoria.generarBot(nombresBots[0]);
+        botDos = factoria.generarBot(nombresBots[1]);
+        usuarioCreado.pilotoTitular = factoria.obtenerPilotoDisponible(usuarioCreado.nombre, ROLES.titular);
+        usuarioCreado.pilotoSuplente = factoria.obtenerPilotoDisponible(usuarioCreado.nombre, ROLES.suplente);
+        usuarioCreado.puntuacion = 0;
+
+        resultados = factoria.generarResultados(listaGrandesPremios);
+
+        localStorage.setItem(constantes.claveBotUno, JSON.stringify(botUno));
+        localStorage.setItem(constantes.claveBotDos, JSON.stringify(botDos));
+        localStorage.setItem(constantes.claveResultados, JSON.stringify(resultados));
+        localStorage.setItem(constantes.clavePilotos, JSON.stringify(listaPilotos));
+        localStorage.setItem(constantes.claveJugador, JSON.stringify(usuarioCreado));
+
+    } else {
+        botUno = JSON.parse(localStorage.getItem(constantes.claveBotUno))
+        botDos = JSON.parse(localStorage.getItem(constantes.claveBotUno))
+        resultados = JSON.parse(localStorage.getItem(constantes.claveResultados))
+    }
+
+    localStorage.setItem(constantes.oscuro, JSON.stringify(true));
 
     cargarSiguienteCarrera();
 };
-
-function simularGranPremio(granPremio) {
-    granPremio.resultados = [];
-    let temp = pilotos.slice();
-
-    // TODO: Guardar puntuacion de cada gran premio.
-
-    for (let i = 0; i < pilotos.length; i++) {
-        const indice = Math.floor(Math.random() * temp.length - 1);
-        let piloto = temp.splice(indice, 1)[0];
-
-        let puntuacion = i <= PUNTUACION.length - 1 ? PUNTUACION[i] : 0;
-
-        granPremio.resultados.push({
-            codigo: piloto.codigo,
-            puntuacion: puntuacion
-        });
-    }
-
-    return granPremio.resultados;
-}
-
-//Se deben cargar los grandes premios con todas las puntuaciones de todas las carreras.
-function generarResultados() {
-    let temp = grandesPremios;
-
-    for (let i = 0; i < temp.length; i++) {
-        simularGranPremio(temp[i]);
-    }
-
-    return temp;
-}
-
-function obtenerPilotoDisponible(nombreJugador, rol) {
-    let indice = Math.floor(Math.random() * pilotos.length);
-    let piloto = pilotos[indice];
-
-    while (!piloto.disponible) {
-        indice = Math.floor(Math.random() * pilotos.length - 1);
-        piloto = pilotos[indice];
-    }
-
-    piloto.rol = rol;
-    piloto.propiedadJugador = nombreJugador;
-    piloto.disponible = false;
-
-    return piloto;
-}
-
-// Se deben generarse los dos usuarios bot con sus pilotos suplentes y titulares respectivamente
-function generarBot(nombre) {
-    return new Jugador(
-        nombre,
-        obtenerPilotoDisponible(nombre, ROLES.titular),
-        obtenerPilotoDisponible(nombre, ROLES.suplente),
-        true
-    );
-}
 
 // Mostrar el nombre de la siguiente carrera por disputarse, con el lugar donde se disputa el gran premio y una breve descripción de la carrera.
 function cargarSiguienteCarrera() {
@@ -96,12 +56,50 @@ function cargarSiguienteCarrera() {
         return !granPremio.disputado;
     });
 
-    nombreGP.textContent = siguienteGranPremio.nombre;
-    lugarGP.textContent = siguienteGranPremio.lugar;
-    descripcionGP.textContent = siguienteGranPremio.descripcion;
+    // Borramos la informacion de los grandes premios, ya que no hay ninguno mas.
+    if (!siguienteGranPremio) {
+        granPremioDiv.hidden = true;
+        ganadorDiv.hidden = false;
+    } else {
+        nombreGP.textContent = siguienteGranPremio.nombre;
+        lugarGP.textContent = siguienteGranPremio.lugar;
+        descripcionGP.textContent = siguienteGranPremio.descripcion;
+    }
 }
 
-/**
- *
- * @param jugador {Jugador}
- */
+const listaNombresBots = [
+    "Jaime Fraile",
+    "Inés Barrera",
+    "Patricia Mota",
+    "Francisco Álvarez",
+    "Sergio López de Coca",
+    "Laura Pedraza",
+    "David Trujillo",
+    "Carlos Fernández",
+    "Manuel García",
+    "Alejandro García",
+    "Raúl Gutiérrez",
+    "Badr Hamidou",
+    "Marina Laguna",
+    "Gonzalo Martínez",
+    "Javier Morales",
+    "Óscar Moreno",
+    "Elena Rodríguez",
+    "Ismael Sarrión",
+    "Javier Velasco",
+    "Juan Navarrete"
+];
+
+function elegirNombresBots() {
+    let indiceUno = Math.floor(Math.random() * listaNombresBots.length);
+    let indiceDos = Math.floor(Math.random() * listaNombresBots.length);
+
+    while (indiceDos === indiceUno) {
+        indiceDos = listaNombresBots[Math.floor(Math.random() * listaNombresBots.length)];
+    }
+
+    return [
+        listaNombresBots[indiceUno],
+        listaNombresBots[indiceDos],
+    ]
+}
