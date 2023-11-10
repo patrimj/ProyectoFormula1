@@ -1,0 +1,108 @@
+@charset "UTF-8";
+/*---------------- TIPOGRAFÍAS --------------------*/
+@font-face {
+  font-family: "Formula1-Wide";
+  src: url("../Recursos/fuente/Formula1-Wide.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Formula1-Bold";
+  src: url("../Recursos/fuente/Formula1-Bold-4.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Formula1-Italic";
+  src: url("../Recursos/fuente/Formula1-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Formula1-Regular";
+  src: url("../Recursos/fuente/Formula1-Regular-1.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Formula1-Black";
+  src: url("../Recursos/fuente/Formula1-Black.ttf") format("truetype");
+}
+
+/*---------------- FORMULARIOS --------------------*/
+/*---------------- FORMULARIOS ESTILO --------------------*/
+.contenedor-formularios {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 80%;
+  justify-content: space-around;
+  flex: 40%;
+  gap: 2em;
+  padding-top: 40px;
+}
+
+form {
+  background-color: rgba(23, 23, 31, 0.638);
+  width: 30%;
+  padding: 30px;
+  border-radius: 15px;
+  border-right: 4px solid var(--rojoAcento);
+  border-top: 4px solid var(--rojoAcento);
+  border-bottom: 4px solid var(--rojoAcento);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+}
+
+label {
+  display: block;
+  margin-top: 20px;
+  color: #FFFFFF;
+  display: block;
+  margin-bottom: 10px;
+  font-family: "Formula1-Italic";
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid rgba(204, 204, 204, 0.7137254902);
+  box-sizing: border-box;
+  border-radius: 20px;
+  color: black;
+  font-family: "Formula1-Italic";
+}
+
+input[type=email] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid rgba(204, 204, 204, 0.7137254902);
+  box-sizing: border-box;
+  border-radius: 20px;
+  color: black;
+  font-family: "Formula1-Italic";
+}
+
+input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid rgba(204, 204, 204, 0.7137254902);
+  box-sizing: border-box;
+  border-radius: 20px;
+  color: black;
+  font-family: "Formula1-Italic";
+}
+
+.botones {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  margin: 0;
+}/*# sourceMappingURL=pantallaPerfil.css.map */

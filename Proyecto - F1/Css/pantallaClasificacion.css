@@ -1,0 +1,104 @@
+@charset "UTF-8";
+/*---------------- TIPOGRAFÍAS --------------------*/
+@font-face {
+  font-family: "Formula1-Wide";
+  src: url("../Recursos/fuente/Formula1-Wide.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Formula1-Bold";
+  src: url("../Recursos/fuente/Formula1-Bold-4.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Formula1-Italic";
+  src: url("../Recursos/fuente/Formula1-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Formula1-Regular";
+  src: url("../Recursos/fuente/Formula1-Regular-1.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Formula1-Black";
+  src: url("../Recursos/fuente/Formula1-Black.ttf") format("truetype");
+}
+
+/*---------------- CUERPO --------------------*/
+/*---------------- JUGADORES --------------------*/
+/*---------------- GRANDES PREMIOS DISPUTADOS --------------------*/
+:root {
+  --negrofondo: rgba(8, 8, 10, 0.1);
+  --negroacento: rgba(23, 23, 31, 0.8);
+  --rojoacento: #ef2626;
+}
+
+body {
+  font-family: "Formula1-Regular", sans-serif;
+  display: flex;
+}
+
+#jugadores {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  height: auto;
+  width: 70%;
+  gap: 10em;
+}
+#jugadores div {
+  border: 4px solid var(--rojoAcento);
+  padding: 10%;
+  border-radius: 2em;
+  display: flex;
+  min-width: 10%;
+  min-height: 10%;
+  flex-direction: column;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  background-color: var(--negroFondo);
+  align-items: center;
+  gap: 1em;
+}
+
+span {
+  background: none;
+  color: white;
+  font-family: "Formula1-Regular";
+}
+
+.nick {
+  font-size: 40px;
+  font-family: "Formula1-Bold";
+  color: rgba(0, 0, 0, 0.673);
+}
+
+.puntuacion {
+  font-size: 80px;
+  font-family: "Formula1-Bold";
+  color: rgba(255, 255, 255, 0.894);
+}
+
+#disputados {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: rgba(255, 255, 255, 0.836);
+  margin: 2% 10px 2% 10px;
+  padding: 3%;
+  border-radius: 2em;
+  display: flex;
+  flex-direction: column;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  background-color: rgba(23, 23, 31, 0.6274509804);
+  align-items: center;
+  gap: 1em;
+}
+
+#disputadosNum {
+  font-family: "Formula1-Bold";
+  font-size: 90px;
+  color: rgba(255, 43, 43, 0.745);
+}/*# sourceMappingURL=pantallaClasificacion.css.map */

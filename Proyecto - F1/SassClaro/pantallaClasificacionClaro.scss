@@ -1,0 +1,92 @@
+$color_1: white;
+$color_2: rgba(0, 0, 0, 0.673);
+$color_3: rgba(255, 255, 255, 0.894);
+$color_4: rgba(255, 255, 255, 0.836);
+$color_5: rgba(255, 43, 43, 0.745);
+$font-family_1: 'Formula1-Regular', sans-serif;
+$font-family_2: 'Formula1-Regular';
+$font-family_3: 'Formula1-Bold';
+$background-color_1: var(--negroFondo);
+$background-color_2: #dbdbdb6c;
+
+/*---------------- TIPOGRAFÍAS --------------------*/
+@font-face {
+	font-family: 'Formula1-Wide';
+	src: url('../fuente/Formula1-Wide.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Formula1-Bold';
+	src: url('../fuente/Formula1-Bold-4.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Formula1-Italic';
+	src: url('../fuente/Formula1-Italic.ttf') format('truetype');
+}
+/*---------------- CUERPO --------------------*/
+/*---------------- JUGADORES --------------------*/
+/*---------------- GRANDES PREMIOS DISPUTADOS --------------------*/
+:root {
+	--negrofondo: rgba(8, 8, 10, 0.1);
+	--negroacento: rgba(23, 23, 31, 0.8);
+	--rojoacento: #ef2626;
+}
+body {
+	font-family: $font-family_1;
+	display: flex;
+}
+#jugadores {
+	display: flex;
+	justify-content: space-around;
+	padding: 20px;
+	height: auto;
+	width: 70%;
+	gap: 10em;
+	div {
+		border: 4px solid var(--rojoAcento);
+		padding: 10%;
+		border-radius: 2em;
+		display: flex;
+		min-width: 10%;
+		min-height: 10%;
+		flex-direction: column;
+		backdrop-filter: blur(10px);
+		background-color: $background-color_1;
+		align-items: center;
+		gap: 1em;
+	}
+}
+span {
+	background: none;
+	color: $color_1;
+	font-family: $font-family_2;
+}
+.nick {
+	font-size: 40px;
+	font-family: $font-family_3;
+	color: $color_2;
+}
+.puntuacion {
+	font-size: 80px;
+	font-family: $font-family_3;
+	color: $color_3;
+}
+#disputados {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	color: $color_4;
+	margin: 2% 10px 2% 10px;
+	padding: 3%;
+	border-radius: 2em;
+	display: flex;
+	flex-direction: column;
+	backdrop-filter: blur(10px);
+	background-color: $background-color_2;
+	align-items: center;
+	gap: 1em;
+}
+#disputadosNum {
+	font-family: $font-family_3;
+	font-size: 90px;
+	color: $color_5;
+}

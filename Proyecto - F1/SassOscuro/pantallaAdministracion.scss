@@ -1,0 +1,120 @@
+$color_1: #d3d3d3;
+$color_2: #4bcb42;
+$color_3: #ffffff;
+$color_4: #6c6c6c;
+$font-family_1: 'Formula1-Regular', sans-serif;
+$font-family_2: 'Formula1-Italic';
+$font-family_3: "Formula1-Regular";
+$font-family_4: "Formula1-Bold";
+$background-color_1: rgba(8, 8, 10, 0.2);
+$background-color_2: #287223;
+$background-color_3: #722323;
+$background-color_4: #282828;
+$border-color_1: #4bcb42;
+$border-color_2: #cb4242;
+$border-color_3: #cbcbcb;
+
+/*---------------- TIPOGRAFÍAS --------------------*/
+@font-face {
+	font-family: 'Formula1-Wide';
+	src: url('../fuente/Formula1-Wide.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Formula1-Bold';
+	src: url('../fuente/Formula1-Bold-4.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Formula1-Italic';
+	src: url('../fuente/Formula1-Italic.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Formula1-Regular';
+	src: url('../fuente/Formula1-Regular-1.ttf') format('truetype');
+}
+/*---------------- CUERPO --------------------*/
+/*---------------- BOTONES --------------------*/
+/*---------------- BIENVENIDA --------------------*/
+/*---------------- MAIN --------------------*/
+body {
+	font-family: $font-family_1;
+	display: flex;
+}
+button {
+	border: 3px solid var(--negroAcento);
+	color: $color_1;
+	backdrop-filter: blur(10px);
+	height: calc(100% + 2em);
+	background-color: $background-color_1;
+	font-size: 1.5em;
+	cursor: pointer;
+	font-family: $font-family_2;
+	border-radius: 999em;
+	margin: 1em;
+	&:focus {
+		border: 3px solid var(--negroAcento);
+		color: $color_1;
+		backdrop-filter: blur(10px);
+		height: calc(100% + 2em);
+		background-color: $background-color_1;
+		font-size: 1.5em;
+		cursor: pointer;
+		font-family: $font-family_2;
+		border-radius: 999em;
+		margin: 1em;
+	}
+	&:hover {
+		transition: 0.2s ease-in;
+	}
+	&:disabled {
+		color: $color_4;
+		pointer-events: none;
+	}
+}
+#bienvenidaUsuario {
+	display: inline-block;
+	font-size: 2em;
+	color: $color_2;
+	font-family: $font-family_3;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+	padding: 2em;
+	border-radius: 0.5em;
+	background: rgba(8, 8, 10, 0.5);
+	margin-bottom: 20px;
+}
+#nombreBienvenida {
+	font-family: $font-family_4;
+}
+main {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	flex: 50%;
+	gap: 4em;
+	align-items: center;
+	justify-content: center;
+	div {
+		display: flex;
+		flex-direction: column;
+	}
+}
+#lanzarSiguiente {
+	&:hover {
+		background-color: $background-color_2;
+		color: $color_3;
+		border-color: $border-color_1;
+	}
+}
+#reiniciar {
+	&:hover {
+		background-color: $background-color_3;
+		color: $color_3;
+		border-color: $border-color_2;
+	}
+}
+#alternarModo {
+	&:hover {
+		background-color: $background-color_4;
+		color: $color_3;
+		border-color: $border-color_3;
+	}
+}

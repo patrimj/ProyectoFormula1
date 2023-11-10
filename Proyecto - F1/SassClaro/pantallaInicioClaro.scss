@@ -1,0 +1,70 @@
+$color_1: #2d2d2d;
+$color_2: #990000;
+$color_3: rgb(201, 0, 0);
+$font-family_1: 'Formula1-Regular', sans-serif;
+$font-family_2: 'Formula1-Italic';
+$background-color_1: #ef262694;
+$background-color_2: #ffffff8f;
+
+/*---------------- TIPOGRAFÍAS --------------------*/
+@font-face {
+	font-family: 'Formula1-Wide';
+	src: url('../fuente/Formula1-Wide.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Formula1-Bold';
+	src: url('../fuente/Formula1-Bold-4.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Formula1-Italic';
+	src: url('../fuente/Formula1-Italic.ttf') format('truetype');
+}
+/*---------------- CUERPO  --------------------*/
+/*---------------- TEXTOS  --------------------*/
+/*---------------- INFO GRAN PREMIO INICIO --------------------*/
+/*---------------- NOTICIAS --------------------*/
+body {
+	font-family: $font-family_1;
+	display: flex;
+}
+h2 {
+	color: $color_1;
+}
+h3 {
+	color: $color_1;
+}
+.importante {
+	background-color: $background-color_1;
+	padding: 70px;
+	border-radius: 10px;
+	width: 40%;
+	h2 {
+		color: $color_1;
+		text-align: center;
+	}
+	h3 {
+		color: $color_2;
+		text-align: center;
+	}
+}
+.noticias {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	padding: 20px;
+	flex: 1;
+}
+.one-third.column {
+	background-color: $background-color_2;
+	p {
+		text-align: justify;
+		padding-top: 20px;
+		font-family: $font-family_2;
+		font-size: 12px;
+		letter-spacing: 2px;
+		color: $color_3;
+	}
+}
+.imgNoticias {
+	width: 100%;
+}

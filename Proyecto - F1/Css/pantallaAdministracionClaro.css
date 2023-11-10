@@ -1,0 +1,124 @@
+@charset "UTF-8";
+/*---------------- TIPOGRAFÍAS --------------------*/
+@font-face {
+  font-family: "Formula1-Wide";
+  src: url("../Recursos/fuente/Formula1-Wide.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Formula1-Bold";
+  src: url("../Recursos/fuente/Formula1-Bold-4.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Formula1-Italic";
+  src: url("../Recursos/fuente/Formula1-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Formula1-Regular";
+  src: url("../Recursos/fuente/Formula1-Regular-1.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Formula1-Black";
+  src: url("../Recursos/fuente/Formula1-Black.ttf") format("truetype");
+}
+
+/*---------------- CUERPO --------------------*/
+/*---------------- BOTONES --------------------*/
+/*---------------- BIENVENIDA --------------------*/
+/*---------------- MAIN --------------------*/
+:root {
+  --negrofondo: rgba(8, 8, 10, 0.1);
+  --negroacento: rgba(23, 23, 31, 0.8);
+  --rojoacento: #ef2626;
+}
+
+body {
+  font-family: "Formula1-Regular", sans-serif;
+  display: flex;
+}
+
+button {
+  border: 3px solid var(--negroAcento);
+  color: #d3d3d3;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  height: calc(100% + 2em);
+  background-color: rgba(8, 8, 10, 0.2);
+  font-size: 1.5em;
+  cursor: pointer;
+  font-family: "Formula1-Italic";
+  border-radius: 999em;
+  margin: 1em;
+}
+button:focus {
+  border: 3px solid var(--negroAcento);
+  color: #d3d3d3;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  height: calc(100% + 2em);
+  background-color: rgba(8, 8, 10, 0.2);
+  font-size: 1.5em;
+  cursor: pointer;
+  font-family: "Formula1-Italic";
+  border-radius: 999em;
+  margin: 1em;
+}
+button:hover {
+  transition: 0.2s ease-in;
+}
+
+#bienvenidaUsuario {
+  display: inline-block;
+  font-size: 2em;
+  color: #4bcb42;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(8, 8, 10, 0.457);
+  margin-bottom: 20px;
+}
+
+.jugar {
+  padding-top: 50px;
+  padding-bottom: 30px;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 50%;
+  gap: 4em;
+  align-items: center;
+  justify-content: center;
+}
+main div {
+  display: flex;
+  flex-direction: column;
+}
+
+#lanzarSiguiente:hover {
+  background-color: #287223;
+  color: #ffffff;
+  border-color: #4bcb42;
+}
+
+#alternarModo:hover {
+  background-color: #282828;
+  color: #ffffff;
+  border-color: #cbcbcb;
+}
+
+#reiniciar:hover {
+  background-color: #722323;
+  color: #ffffff;
+  border-color: #cb4242;
+}
+
+button:disabled {
+  color: #6c6c6c;
+  pointer-events: none;
+}

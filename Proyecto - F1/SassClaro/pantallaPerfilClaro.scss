@@ -1,0 +1,96 @@
+$color_1: #2a2a2a;
+$color_2: rgb(255, 57, 57);
+$font-family_1: 'Formula1-Italic';
+$background-color_1: rgba(201, 201, 201, 0.638);
+
+/*---------------- TIPOGRAFÍAS --------------------*/
+@font-face {
+	font-family: 'Formula1-Wide';
+	src: url('fuente/Formula1-Wide.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Formula1-Bold';
+	src: url('fuente/Formula1-Bold-4.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Formula1-Italic';
+	src: url('fuente/Formula1-Italic.ttf') format('truetype');
+}
+/*---------------- FORMULARIOS --------------------*/
+/*---------------- FORMULARIOS ESTILO --------------------*/
+.contenedor-formularios {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	height: 80%;
+	justify-content: space-around;
+	flex: 40%;
+	gap: 2em;
+	padding-top: 40px;
+}
+form {
+	background-color: $background-color_1;
+	width: 30%;
+	padding: 30px;
+	border-radius: 15px;
+	border-right: 4px solid var(--rojoAcento);
+	border-top: 4px solid var(--rojoAcento);
+	border-bottom: 4px solid var(--rojoAcento);
+	backdrop-filter: blur(10px);
+}
+label {
+	display: block;
+	margin-top: 20px;
+	color: $color_1;
+	display: block;
+	margin-bottom: 10px;
+	font-family: $font-family_1;
+}
+input[type="text"] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccccccb6;
+	box-sizing: border-box;
+	border-radius: 20px;
+	color: $color_2;
+	font-family: $font-family_1;
+}
+input[type="email"] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccccccb6;
+	box-sizing: border-box;
+	border-radius: 20px;
+	color: $color_2;
+	font-family: $font-family_1;
+}
+input[type="password"] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccccccb6;
+	box-sizing: border-box;
+	border-radius: 20px;
+	color: $color_2;
+	font-family: $font-family_1;
+}
+.botones {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	align-items: center;
+	justify-content: center;
+}
+button {
+	margin: 0;
+}
+#contenedor {
+	opacity: 1;
+	width: 80%;
+	padding-left: 150px;
+}

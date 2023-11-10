@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>F1 Fantasy - Gran Premio</title>
+
+        <!-- CSS Skeleton
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <link rel="stylesheet" href="../Skeleton/skeleton.css">
+        <link rel="stylesheet" href="../Skeleton/normalize.css">
+
+        <!-- CSS Proyecto
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <link class="comun" rel="stylesheet" type="text/css" href="../Css/superComun.css">
+        <link class="especifico"  rel="stylesheet" type="text/css" href="../Css/pantallaAdministracion.css">
+
+        <!-- Favicon
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <link rel="icon" type="image/png" href="../Recursos/img/favicon.png">
+    </head>
+
+    <body>
+		<header>
+            <a href="../3-inicio/pantallaInicio.html" id="inicio">
+                <img src="../Recursos/fotos/logo.png" alt="logo" width="120px" >
+            </a>
+			<h1>FANTASY FORMULA 1</h1> </br>
+			<a href="../6-perfil/pantallaPerfil.html" id="perfil">
+                <img src="../Recursos/fotos/logo-perfil.webp" alt="logo" width="35px" >
+			</a>
+		</header>
+        <div id="contenedor">
+            <nav id="menu">
+                <ul>
+                    <li><a href="../8-pilotos/pantallaTodos.html" id="pilotos">Pilotos</a></li>
+                    <li><a href="../4-tusPilotos/pantallaPilotos.html" id="tuspilotos">Tus Pilotos</a></li>
+                    <li><a href="../3-inicio/pantallaInicio.html" id="inicio"><img src="../Recursos/fotos/Logo-1-Blanco.png" alt="logo" width="80px" ></a></li>
+                    <li><a href="../5-clasificación/pantallaClasificacion.html" id="clasificacion">Clasificación</a></li>
+                    <li><a href="../7-administracion/pantallaAdministracion.html" id="administracion">Administracion</a></li>
+                </ul>
+            </nav>
+        </div>
+        <h2 class="jugar">JUGAR GRAN PREMIO</h2>
+
+        <main>
+            <span id="bienvenidaUsuario"></span>
+            <div>
+                <a href="../3-inicio/pantallaInicio.html" id="inicio">
+                    <button id="lanzarSiguiente">Lanzar carrera</button>
+                </a>
+				<button id="reiniciar">Empezar desde el <b>principio</b></button>
+				<button id="alternarModo">Cambiar modo<b></b></button>
+            </div>
+        </main>
+
+        <video autoplay muted loop id="myVideo">
+            <source src="../Recursos/video1.mp4" type="video/mp4">
+        </video>
+
+        <footer>
+            <div class="footer-contenido">
+                <div class="redes-sociales">
+                    <p>Puedes encontrarnos en:</p>
+                    <a href="https://www.instagram.com/" target="_blank"><img src="../Recursos/fotos/icono_instagram.webp" alt="Instagram" height="68px"></a>
+                    <a href="https://twitter.com/?lang=es " target="_blank"><img src="../Recursos/fotos/icono_twitter.png" alt="Twitter" height="55px"></a>
+                    <a href="https://www.facebook.com/?locale=es_ES" target="_blank"><img src="../Recursos/fotos/icono_facebook.png" alt="Facebook" height="55px"></a>
+                </div>
+                <div class="politica-privacidad">
+                    <a href="politica-de-privacidad.html">Política de Privacidad</a>
+                </div>
+                <div class="copyright">
+                    <span>&copy; 2023 F1 Fantasy</span>
+                </div> 
+            </div>
+        </footer>
+
+        <script src="pantallaAdministracion.js" type="module"></script>
+    </body>
+</html>

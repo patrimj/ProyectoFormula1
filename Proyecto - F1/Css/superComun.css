@@ -1,0 +1,284 @@
+@charset "UTF-8";
+/*---------------- TIPOGRAFÍAS --------------------*/
+@font-face {
+  font-family: "Formula1-Wide";
+  src: url("../Recursos/fuente/Formula1-Wide.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Formula1-Bold";
+  src: url("../Recursos/fuente/Formula1-Bold-4.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Formula1-Italic";
+  src: url("../Recursos/fuente/Formula1-Italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Formula1-Regular";
+  src: url("../Recursos/fuente/Formula1-Regular-1.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Formula1-Black";
+  src: url("../Recursos/fuente/Formula1-Black.ttf") format("truetype");
+}
+/*---------------- CUERPO --------------------*/
+/*---------------- CABECERA --------------------*/
+/*---------------- CABECERA  y PIE (TITULO Y LOGOS) --------------------*/
+/*---------------- PIE --------------------*/
+/*---------------- PIE (REDES SOCIALES) --------------------*/
+/*---------------- PIE (POLITICA DE PRIVACIDAD) --------------------*/
+/*---------------- TEXTOS (COMPROBAR SI SON COMUNES)--------------------*/
+/*---------------- BARRA DE NAVEGACIÓN (MENÚ) --------------------*/
+/*---------------- MENSAJE ERROR  --------------------*/
+/*---------------- BOTONES  --------------------*/
+@keyframes glowing-button {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+body {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  background-color: #4b4b4b;
+  color: #FFFFFF;
+}
+
+#contenedor {
+  opacity: 1;
+  width: 100%;
+}
+
+header {
+  background-color: rgba(23, 23, 31, 0.7490196078);
+  color: #FFFFFF;
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  margin: 0px;
+}
+
+img {
+  margin-right: 80px;
+  position: relative;
+  top: 0px;
+  left: 0;
+}
+
+#menu {
+  background-color: var(--negroAcento);
+  overflow: hidden;
+  text-align: center;
+  font-family: "Formula1-Italic";
+}
+#menu img {
+  margin: 0;
+  width: 55px;
+}
+#menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+}
+#menu li {
+  display: inline;
+  margin: 0;
+}
+#menu li a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 1em;
+  text-decoration: none;
+  transition: color 0.2s;
+  letter-spacing: 3px;
+  transition: 0.2s;
+}
+#menu li a:hover {
+  font-weight: bold;
+  background-color: #ff2727;
+}
+#menu li label {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 1em;
+  text-decoration: none;
+  transition: color 0.2s;
+  letter-spacing: 3px;
+  transition: 0.2s;
+}
+#menu li label:hover {
+  font-weight: bold;
+  background-color: #ff2727;
+}
+
+.redes-sociales {
+  margin: 20px 20px;
+}
+.redes-sociales img {
+  margin-right: 10px;
+  transition: all 0.1s ease-in-out;
+}
+.redes-sociales img:hover {
+  transform: scale(1.7);
+}
+.redes-sociales a {
+  margin: 10px 40px;
+}
+
+footer {
+  background-color: rgba(23, 23, 31, 0.6784313725);
+  color: #FFFFFF;
+  text-align: center;
+  padding: 20px 0;
+  position: relative;
+  font-family: "Formula1-Italic";
+  margin-top: 10%;
+  width: 100%;
+}
+
+.footer-contenido {
+  margin: 20px 20px;
+}
+
+.privacy-policy a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.copyright span {
+  color: #fff;
+  text-decoration: none;
+}
+
+h2 {
+  padding-top: 20px;
+  text-align: center;
+  font-family: "Formula1-Bold";
+  font-size: 24px;
+  letter-spacing: 2px;
+  font-size: 24px;
+  letter-spacing: 2px;
+}
+
+h3 {
+  padding-top: 20px;
+  text-align: center;
+  font-family: "Formula1-Bold";
+  font-size: 24px;
+  letter-spacing: 2px;
+  font-size: 24px;
+  letter-spacing: 2px;
+}
+
+nav {
+  width: 80%;
+  margin: 1em auto;
+  border-radius: 999em;
+}
+
+#msg {
+  text-align: center;
+  font-family: "Formula1-Italic";
+}
+
+button {
+  background-color: rgb(71, 57, 59);
+  color: white;
+  margin-right: 30px;
+  cursor: pointer;
+  border: #110e35;
+  font-family: "Formula1-Italic";
+  border-radius: 20px;
+  padding: 0 30px;
+}
+button:hover {
+  opacity: 0.8;
+  background-color: #ef2626;
+  color: white;
+  text-decoration: none;
+}
+
+#botonescss {
+  display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  -moz-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.button:before {
+  content: "";
+  background: linear-gradient(45deg, #ff0000, #c20000, #7f0000, #480000, #c00000);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+.button:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+input[type=text] {
+  border: 3px solid rgba(190, 0, 0, 0.7137254902);
+  transition: 0.1s;
+}
+
+input[type=email] {
+  border: 3px solid rgba(190, 0, 0, 0.7137254902);
+  transition: 0.1s;
+}
+
+input[type=password]:focus {
+  border: 3px solid rgba(190, 0, 0, 0.7137254902);
+  transition: 0.1s;
+}/*# sourceMappingURL=superComun.css.map */

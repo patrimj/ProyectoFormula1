@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>F1 Fantasy - Registro</title>
+        
+        <!-- CSS
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <link rel="stylesheet" href="../Skeleton/skeleton.css">
+        <link rel="stylesheet" href="../Skeleton/normalize.css">
+
+        <!-- CSS COMÚN -->
+        <link class="comun" rel="stylesheet" type="text/css" href="../Css/superComun.css">
+        <!-- tema oscuro -->
+        <link rel="stylesheet" type="text/css" href="../Css/pantallaRegistro.css">
+
+        <!-- CSS COMÚN (claro)-->
+        <!--<<link rel="stylesheet" type="text/css" href="../superComunClaro.css"> -->
+        <!-- tema claro -->
+        <!--<<link rel="stylesheet" type="text/css" href="pantallaRegistroClaro.css"> -->
+
+        <!-- Favicon
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <link rel="icon" type="image/png" href="../Recursos/img/favicon.png">
+
+    </head>
+    <body>
+        <header>
+            <img src="../Recursos/fotos/logo.png" alt="logo" width="120px" >
+            <h1>FANTASY FORMULA 1</h1>
+        </header>
+            </br></br>
+        <h3>REGISTRO</h3>
+        <form>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+                </br></br>
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" id="apellidos" name="apellidos" required>
+                </br></br>
+            <label for="correo">Correo:</label>
+            <input type="email" id="correo" name="correo" required>
+                </br></br>
+            <label for="nick">Nick:</label>
+            <input type="text" id="nick" name="nick" required>
+                </br></br>
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" id="contrasena" name="contrasena" required>
+                </br></br>
+            <label for="confirmacion-contrasena">Confirmación de Contraseña:</label>
+            <input type="password" id="confirmacion-contrasena" name="confirmacion-contrasena" required>
+                </br></br>
+            <p id="msg"></p>
+  
+            <div id="botonescss">
+                <button class="button" type="submit" id="registrarse"><a href="../1-inicial/pantallaInicial.html">Registrarse</a></button>
+            </div>  
+                
+        </form>
+
+        <video autoplay muted loop id="myVideo">
+            <source src="../Recursos/video1.mp4" type="video/mp4">
+        </video>
+
+
+
+        <footer>
+            <div class="footer-contenido">
+                <div class="redes-sociales">
+                    <p>Puedes encontrarnos en:</p>
+                    <a href="https://www.instagram.com/" target="_blank"><img src="../Recursos/fotos/icono_instagram.webp" alt="Instagram" height="68px"></a>
+                    <a href="https://twitter.com/?lang=es " target="_blank"><img src="../Recursos/fotos/icono_twitter.png" alt="Twitter" height="55px"></a>
+                    <a href="https://www.facebook.com/?locale=es_ES" target="_blank"><img src="../Recursos/fotos/icono_facebook.png" alt="Facebook" height="55px"></a>
+                </div>
+                <div class="politica-privacidad">
+                    <a href="politica-de-privacidad.html">Política de Privacidad</a>
+                </div>
+                <div class="copyright">
+                    <span>&copy; 2023 F1 Fantasy</span>
+                </div> 
+            </div>
+        </footer>
+
+        <script type="module" src="pantallaRegistro.js"></script>
+
+    </body>
+</html>

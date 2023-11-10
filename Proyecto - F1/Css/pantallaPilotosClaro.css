@@ -1,0 +1,80 @@
+@font-face {
+  font-family: "Formula1-Wide";
+  src: url("../Recursos/fuente/Formula1-Wide.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Formula1-Bold";
+  src: url("../Recursos/fuente/Formula1-Bold-4.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Formula1-Italic";
+  src: url("../Recursos/fuente/Formula1-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Formula1-Regular";
+  src: url("../Recursos/fuente/Formula1-Regular-1.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Formula1-Black";
+  src: url("../Recursos/fuente/Formula1-Black.ttf") format("truetype");
+}
+
+/*---------------- CUERPO --------------------*/
+/*---------------- DATOS PILOTOS --------------------*/
+/*---------------- TABLA --------------------*/
+body {
+  font-family: "Formula1-Regular", sans-serif;
+  display: flex;
+}
+
+.bandera {
+  width: 1.5em;
+  height: auto;
+  border-radius: 999em;
+}
+
+.fotoPiloto {
+  border-radius: 999em;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 3.5em;
+  height: 3.5em;
+  border: 5px solid var(--negroAcento);
+}
+
+.celdaPiloto {
+  font-family: "Formula1-Bold";
+}
+
+.celdaPuntos {
+  font-size: 50px;
+}
+
+table {
+  color: white;
+  border-collapse: initial;
+  font-size: 2em;
+  border-radius: 0 3em 0 0;
+  border-right: 4px solid var(--rojoAcento);
+  border-top: 4px solid var(--rojoAcento);
+  background-color: var(--negroFondo);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+}
+
+div {
+  border: none;
+}
+
+tr {
+  border: none;
+}
+
+td {
+  padding: 1em;
+  font-family: "Formula1-Bold";
+}/*# sourceMappingURL=pantallaPilotosClaro.css.map */

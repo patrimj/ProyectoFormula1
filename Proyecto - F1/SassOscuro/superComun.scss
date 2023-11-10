@@ -1,0 +1,282 @@
+$color_1: #FFFFFF;
+$color_2: #fff;
+$color_3: white;
+$color_4: rgb(255, 255, 255);
+$font-family_1: 'Formula1-Italic';
+$font-family_2: 'Formula1-Bold';
+$background-color_1: #4b4b4b;
+$background-color_2: #17171fbf;
+$background-color_3: #17171fad;
+$background-color_4: var(--negroAcento);
+$background-color_5: #ff2727;
+$background-color_6: rgb(71, 57, 59);
+$background-color_7: #ef2626;
+
+/*---------------- TIPOGRAFÍAS --------------------*/
+@font-face {
+	font-family: 'Formula1-Wide';
+	src: url('fuente/Formula1-Wide.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Formula1-Bold';
+	src: url('fuente/Formula1-Bold-4.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Formula1-Italic';
+	src: url('fuente/Formula1-Italic.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Formula1-Regular';
+	src: url('fuente/Formula1-Regular-1.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Formula1-Black';
+	src: url('fuente/Formula1-Black.ttf') format('truetype');
+}
+/*---------------- CUERPO --------------------*/
+/*---------------- CABECERA --------------------*/
+/*---------------- CABECERA  y PIE (TITULO Y LOGOS) --------------------*/
+/*---------------- PIE --------------------*/
+/*---------------- PIE (REDES SOCIALES) --------------------*/
+/*---------------- PIE (POLITICA DE PRIVACIDAD) --------------------*/
+/*---------------- TEXTOS (COMPROBAR SI SON COMUNES)--------------------*/
+/*---------------- BARRA DE NAVEGACIÓN (MENÚ) --------------------*/
+/*---------------- MENSAJE ERROR  --------------------*/
+/*---------------- BOTONES  --------------------*/
+@keyframes glowing-button {
+	0% {
+		background-position: 0 0;
+	}
+	50% {
+		background-position: 400% 0;
+	}
+	100% {
+		background-position: 0 0;
+	}
+}
+body {
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+	padding: 0;
+	background-color: $background-color_1;
+	color: $color_1;
+}
+#contenedor {
+	opacity: 1;
+	width: 100%;
+}
+header {
+	background-color: $background-color_2;
+	color: $color_1;
+	position: relative;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	margin: 0px;
+}
+img {
+	margin-right: 80px;
+	position: relative;
+	top: 0px;
+	left: 0;
+}
+#menu {
+	img {
+		margin: 0;
+		width: 55px;
+	}
+	background-color: $background-color_4;
+	overflow: hidden;
+	text-align: center;
+	font-family: $font-family_1;
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 2em;
+	}
+	li {
+		display: inline;
+		margin: 0;
+		a {
+			display: inline-block;
+			color: $color_3;
+			text-align: center;
+			padding: 1em;
+			text-decoration: none;
+			transition: color 0.2s;
+			letter-spacing: 3px;
+			transition: 0.2s;
+			&:hover {
+				font-weight: bold;
+				background-color: $background-color_5;
+			}
+		}
+		label {
+			display: inline-block;
+			color: $color_3;
+			text-align: center;
+			padding: 1em;
+			text-decoration: none;
+			transition: color 0.2s;
+			letter-spacing: 3px;
+			transition: 0.2s;
+			&:hover {
+				font-weight: bold;
+				background-color: $background-color_5;
+			}
+		}
+	}
+}
+.redes-sociales {
+	img {
+		margin-right: 10px;
+		transition: all 0.1s ease-in-out;
+		&:hover {
+			transform: scale(1.7);
+		}
+	}
+	margin: 20px 20px;
+	a {
+		margin: 10px 40px;
+	}
+}
+footer {
+	background-color: $background-color_3;
+	color: $color_1;
+	text-align: center;
+	padding: 20px 0;
+	position: relative;
+	font-family: $font-family_1;
+	margin-top: 10%;
+	width: 100%;
+}
+.footer-contenido {
+	margin: 20px 20px;
+}
+.privacy-policy {
+	a {
+		color: $color_2;
+		text-decoration: none;
+	}
+}
+.copyright {
+	span {
+		color: $color_2;
+		text-decoration: none;
+	}
+}
+h2 {
+	padding-top: 20px;
+	text-align: center;
+	font-family: $font-family_2;
+	font-size: 24px;
+	letter-spacing: 2px;
+	font-size: 24px;
+	letter-spacing: 2px;
+}
+h3 {
+	padding-top: 20px;
+	text-align: center;
+	font-family: $font-family_2;
+	font-size: 24px;
+	letter-spacing: 2px;
+	font-size: 24px;
+	letter-spacing: 2px;
+}
+nav {
+	width: 80%;
+	margin: 1em auto;
+	border-radius: 999em;
+}
+#msg {
+	text-align: center;
+	font-family: $font-family_1;
+}
+button {
+	background-color: $background-color_6;
+	color: $color_3;
+	margin-right: 30px;
+	cursor: pointer;
+	border: #110e35;
+	font-family: $font-family_1;
+	border-radius: 20px;
+	padding: 0 30px;
+	&:hover {
+		opacity: 0.8;
+		background-color: $background-color_7;
+		color: $color_3;
+		text-decoration: none;
+	}
+}
+#botonescss {
+	display: flex;
+	margin: auto;
+	align-items: center;
+	justify-content: center;
+}
+.button {
+	border: none;
+	outline: none;
+	color: $color_4;
+	background: #111;
+	cursor: pointer;
+	position: relative;
+	z-index: 0;
+	border-radius: 10px;
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
+	&:before {
+		content: "";
+		background: linear-gradient( 45deg, #ff0000, #c20000, #7f0000, #480000, #c00000 );
+		position: absolute;
+		top: -2px;
+		left: -2px;
+		background-size: 400%;
+		z-index: -1;
+		filter: blur(5px);
+		-webkit-filter: blur(5px);
+		width: calc(100% + 4px);
+		height: calc(100% + 4px);
+		animation: glowing-button 20s linear infinite;
+		transition: opacity 0.3s ease-in-out;
+		border-radius: 10px;
+	}
+	&:after {
+		z-index: -1;
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background: #222;
+		left: 0;
+		top: 0;
+		border-radius: 10px;
+	}
+}
+a {
+	text-decoration: none;
+	color: $color_3;
+}
+input[type="text"] {
+	border: 3px solid #be0000b6;
+	transition: .1s;
+}
+input[type="email"] {
+	border: 3px solid #be0000b6;
+	transition: .1s;
+}
+input[type="password"] {
+	&:focus {
+		border: 3px solid #be0000b6;
+		transition: .1s;
+	}
+}

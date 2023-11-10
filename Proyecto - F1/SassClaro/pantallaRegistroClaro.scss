@@ -1,0 +1,76 @@
+$color_1: #ffffff;
+$color_2: #242424;
+$color_3: #cf0000;
+$font-family_1: 'Formula1-Italic';
+$background-color_1: #ffffffa5;
+$background-color_2: #6d6d6da5;
+
+/*---------------- TIPOGRAFÍAS --------------------*/
+@font-face {
+	font-family: 'Formula1-Wide';
+	src: url('../fuente/Formula1-Wide.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Formula1-Bold';
+	src: url('../fuente/Formula1-Bold-4.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Formula1-Italic';
+	src: url('../fuente/Formula1-Italic.ttf') format('truetype');
+}
+/*---------------- TEXTOS  --------------------*/
+/*---------------- FORMULARIO  --------------------*/
+h3 {
+	color: $color_1;
+	padding-bottom: 20px;
+}
+form {
+	background-color: $background-color_1;
+	margin: auto;
+	width: 50%;
+	padding: 20px;
+	border-radius: 15px;
+	opacity: 0.9;
+}
+label {
+	color: $color_2;
+	display: block;
+	margin-bottom: 10px;
+	font-family: $font-family_1;
+}
+input[type="text"] {
+	background-color: $background-color_2;
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	border-radius: 20px;
+	color: $color_3;
+	font-family: $font-family_1;
+}
+input[type="email"] {
+	background-color: $background-color_2;
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	border-radius: 20px;
+	color: $color_3;
+	font-family: $font-family_1;
+}
+input[type="password"] {
+	background-color: $background-color_2;
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	border-radius: 20px;
+	color: $color_3;
+	font-family: $font-family_1;
+}
