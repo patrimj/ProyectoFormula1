@@ -2,15 +2,15 @@
 /*---------------- TIPOGRAFÍAS --------------------*/
 @font-face {
   font-family: "Formula1-Wide";
-  src: url("../fuente/Formula1-Wide.ttf") format("truetype");
+  src: url("../Recursos/fuente/Formula1-Wide.ttf") format("truetype");
 }
 @font-face {
   font-family: "Formula1-Bold";
-  src: url("../fuente/Formula1-Bold-4.ttf") format("truetype");
+  src: url("../Recursos/fuente/Formula1-Bold-4.ttf") format("truetype");
 }
 @font-face {
   font-family: "Formula1-Italic";
-  src: url("../fuente/Formula1-Italic.ttf") format("truetype");
+  src: url("../Recursos/fuente/Formula1-Italic.ttf") format("truetype");
 }
 /*---------------- TEXTOS  --------------------*/
 /*---------------- FORMULARIO  --------------------*/
