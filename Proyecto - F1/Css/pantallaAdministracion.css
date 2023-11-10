@@ -93,6 +93,7 @@ main {
   align-items: center;
   justify-content: center;
 }
+
 main div {
   display: flex;
   flex-direction: column;
@@ -114,4 +115,9 @@ main div {
   background-color: #282828;
   color: #ffffff;
   border-color: #cbcbcb;
-}/*# sourceMappingURL=pantallaAdministracion.css.map */
+}
+
+button:disabled {
+  color: #6c6c6c;
+  pointer-events: none;
+}

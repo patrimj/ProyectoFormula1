@@ -10,7 +10,7 @@ const pilotoDosDiv = document.querySelector("#pilotoDos");
 const jugador = JSON.parse(localStorage.getItem(constantes.claveJugador));
 
 onload = function () {
-    alternarModo(JSON.parse(localStorage.getItem(constantes.oscuro)), "pantallaPilotos");
+    alternarModo(JSON.parse(localStorage.getItem(constantes.oscuro)), "pantallaTusPilotos");
 
     cargarPiloto(jugador.pilotoTitular, pilotoUnoDiv, ROLES.titular);
     cargarPiloto(jugador.pilotoSuplente, pilotoDosDiv, ROLES.suplente);
@@ -61,12 +61,12 @@ function cargarPiloto(piloto, infoPilotoDiv, rol) {
     nombre.textContent = `${piloto.nombre} ${piloto.apellido}`;
     nombre.classList.add('nombrePiloto'); 
 
-    imagen.src = `../img/${piloto.codigo}.jpg`;
+    imagen.src = `../Recursos/img/${piloto.codigo}.jpg`;
     imagen.classList.add('fotoPiloto');
 
     nacionalidad.textContent = piloto.nacionalidad;
 
-    bandera.src = `../img/banderas/${piloto.nacionalidad}.png`;
+    bandera.src = `../Recursos/img/banderas/${piloto.nacionalidad}.png`;
     bandera.classList.add('bandera');
 
     infoPilotoDiv.appendChild(imagen);

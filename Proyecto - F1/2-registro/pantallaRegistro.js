@@ -1,3 +1,5 @@
+import {constantes} from "../constantes.js";
+
 const nombreInput = document.getElementById("nombre");
 const apellidoInput = document.getElementById("apellidos");
 const correoInput = document.getElementById("correo");
@@ -19,7 +21,8 @@ registrarseBtn.addEventListener('click', function(event) {
     cargarDatos();
     if (usuarioCreado.nombre !== '' && usuarioCreado.apellido !== '' && usuarioCreado.correo !== '' && usuarioCreado.nick !== '' && usuarioCreado.contrasena !== '') {
         let usuarioJSON = JSON.stringify(usuarioCreado);
-        localStorage.setItem('usuario', usuarioJSON); 
+        localStorage.setItem('usuario', usuarioJSON);
+        localStorage.setItem(constantes.oscuro, JSON.stringify(true));
         window.location.href = "../1-inicial/pantallaInicial.html";
     }
 });
@@ -73,8 +76,7 @@ function cargarDatos(){
     usuarioCreado.correo = correoInput.value;
     usuarioCreado.nick = nickInput.value;
     usuarioCreado.contrasena = contrasenaInput.value;
-    console.log("Nombre:", usuarioCreado.nombre,"Apellido:", usuarioCreado.apellido,"Correo:", usuarioCreado.correo,"Nick:", usuarioCreado.nick,"Contraseña", usuarioCreado.contrasena);
-}    
+}
 
 
 

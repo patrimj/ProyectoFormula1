@@ -116,4 +116,9 @@ main div {
   background-color: #722323;
   color: #ffffff;
   border-color: #cb4242;
-}/*# sourceMappingURL=pantallaAdministracionClaro.css.map */
+}
+
+button:disabled {
+  color: #6c6c6c;
+  pointer-events: none;
+}

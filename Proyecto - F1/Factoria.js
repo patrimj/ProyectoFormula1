@@ -25,11 +25,15 @@ export function generarResultados(listaGrandesPremios) {
  */
 export function simularGranPremio(granPremio) {
     let temp = listaPilotos.slice();
+    granPremio.resultados = [];
 
     for (let i = 0; i < listaPilotos.length; i++) {
+
         const indice = Math.floor(Math.random() * temp.length - 1);
         let piloto = temp.splice(indice, 1)[0];
         let puntuacion = i <= puntuaciones.length - 1 ? puntuaciones[i] : 0;
+
+        console.log(granPremio);
 
         // TODO: Solo puntuan los pilotos titulares
         granPremio.resultados.push({
