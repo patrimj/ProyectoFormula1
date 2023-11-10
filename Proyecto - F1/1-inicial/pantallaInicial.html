@@ -2,11 +2,31 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Pantalla Inicial</title>
+        <title>F1 Fantasy - Inicio Sesión</title>
+
+        <!-- CSS Skeleton
+          –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <link rel="stylesheet" href="../Skeleton/skeleton.css">
+        <link rel="stylesheet" href="../Skeleton/normalize.css">
+
+        <!-- CSS Proyecto
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <link class="comun" rel="stylesheet" type="text/css" href="../superComun.css">
+        <link class="especifico"  rel="stylesheet" type="text/css" href="inicial.css">
+
+        <!-- Favicon
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <link rel="icon" type="image/png" href="../Recursos/fotos/logo.png" >
+
     </head>
+
     <body>
-        <h1>FANTASY FORMULA 1</h1>
-        <h3>Inicio de sesión</h3>
+        <header>
+            <img src="../Recursos/fotos/logo.png" alt="logo" width="120px" >
+            <h1>FANTASY FORMULA 1</h1>
+        </header>
+            </br></br>
+        <h3>INICIO DE SESIÓN</h3>
         <form>
             <label for="correo">Correo:</label>
             <input type="email" id="correo" name="correo" required> 
@@ -14,10 +34,34 @@
             <label for="contrasena">Contraseña:</label>
             <input type="password" id="contrasena" name="contrasena" required>
                 </br></br>
-            <button type="submit" id="iniciar-sesion"><a href="../3-inicio/pantallaInicio.html">Iniciar Sesión</a></button>
-            <button type="button" id="registrarse"><a href="../2-registro/pantallaRegistro.html">Registrarse</a></button>
+            <p id="msg"></p>
+            <div id="botonescss">
+                <button class="button" type="submit" id="iniciar-sesion"><a href="../3-inicio/pantallaInicio.html">Iniciar Sesión</a></button>
+                <button class="button" type="button" id="registrarse"><a href="../2-registro/pantallaRegistro.html">Registrarse</a></button>
+            </div>  
         </form>
-        <p id="msg"></p>
+        
+        <video autoplay muted loop id="myVideo">
+            <source src="../Recursos/video1.mp4" type="video/mp4">
+        </video>   
+
+        <footer>
+            <div class="footer-contenido">
+                <div class="redes-sociales">
+                    <p>Puedes encontrarnos en:</p>
+                    <a href="https://www.instagram.com/" target="_blank"><img src="../Recursos/fotos/icono_instagram.webp" alt="Instagram" height="68px"></a>
+                    <a href="https://twitter.com/?lang=es " target="_blank"><img src="../Recursos/fotos/icono_twitter.png" alt="Twitter" height="55px"></a>
+                    <a href="https://www.facebook.com/?locale=es_ES" target="_blank"><img src="../Recursos/fotos/icono_facebook.png" alt="Facebook" height="55px"></a>
+                </div>
+                <div class="politica-privacidad">
+                    <a href="politica-de-privacidad.html">Política de Privacidad</a>
+                </div>
+                <div class="copyright">
+                    <span>&copy; 2023 F1 Fantasy</span>
+                </div> 
+            </div>
+        </footer>
+        
         <script src="pantallaInicial.js"></script>
     </body>
 </html>

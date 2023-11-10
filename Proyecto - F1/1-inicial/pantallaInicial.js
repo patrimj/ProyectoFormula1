@@ -16,10 +16,6 @@ iniciarSesionBtn.addEventListener('click', function(event) {
 // FUNCIONES
 function cargarDatos(){
 
-    /* si el correo y contraseña ya se han verificado en la página de registro no es necesario volver a verificarlos
-    const correoRegex = /^[A-Za-z0-9_]{2,15}@[A-Za-z0-9_]{3,15}\.[A-Za-z0-9_]{2,4}$/;
-    const contrasenaRegex = /^[a-zA-Z0-9*#$]{6,12}$/;*/
-
     //coge el usuario del registro de localStorage
     var usuarioJSON = localStorage.getItem('usuario'); 
     var usuarioCreado = JSON.parse(usuarioJSON);
@@ -57,25 +53,4 @@ function cargarDatos(){
         localStorage.setItem('login', usuarioJSON); 
     }
 
-    /*
-    let correoValido = correoRegex.test(correoInput.value);
-    let contrasenaValida = contrasenaRegex.test(contrasenaInput.value);
-
-    if (!correoValido && !contrasenaValida) {
-        msg.textContent = 'El correo y la contraseña no son correctos'; 
-    } else if (!correoValido) {
-        msg.textContent = 'El correo no es correcto'; 
-    } else if (!contrasenaValida) {
-        msg.textContent = 'La contraseña no es correcta'; 
-    }
-
-    if (msg.textContent === '') { // cargamos los datos.
-        usuario.correo = correoInput.value;
-        usuario.contrasena = contrasenaInput.value;
-        console.log("Correo del usuario:", usuario.correo,"Contraseña del usuario:", usuario.contrasena);
-
-        // si los datos del usuario en el inicio de sesión son correctos, se almacenan en el localStorage
-        var usuarioJSON = JSON.stringify(usuario);    
-        localStorage.setItem('usuario', usuarioJSON); 
-    }*/
 }
